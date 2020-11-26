@@ -197,6 +197,11 @@ body {
   text-decoration: none;
   color: #3b7882;
 }
+
+.card li a:hover{
+  text-decoration: none;
+  color: #ff0000;
+}
 .hexagon {
   position: absolute;
   width: 100px;
