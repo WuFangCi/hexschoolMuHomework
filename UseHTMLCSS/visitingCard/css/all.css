@@ -181,7 +181,7 @@ body {
   margin-top: 20px;
   color: #3b7882;
 }
-.card h2 {
+.card h1 {
   margin-top: 50px;
   margin-bottom: 50px;
   font-size: 32px;
@@ -192,6 +192,10 @@ body {
   font-size: 18px;
   color: #3b7882;
   margin: 10px;
+}
+.card li a{
+  text-decoration: none;
+  color: #3b7882;
 }
 .hexagon {
   position: absolute;
