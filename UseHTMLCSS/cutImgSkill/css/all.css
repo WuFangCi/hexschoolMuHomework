@@ -1,0 +1,127 @@
+.iconFollow{
+    background-color: #f6f6f6;
+    width: 100%;
+    text-align: right;
+    vertical-align: middle;
+    font-size: 0;
+}
+.iconFollow a {
+    font-size: 16px;
+    line-height:28px;
+}
+.iconFollow a:hover{
+    color:orange;
+}
+.iconFollow>:first-child {
+    color:#4460a0;
+    padding-right: 8px;
+   
+}
+.iconFollow>:last-child {
+    color:#00aaec;
+    border-left: #cccccc solid 1px;
+    padding-left: 8px;
+}
+.header{
+    width: 100%;
+}
+.header h1{
+    float: left;
+}
+.header h1 a {
+    background-image: url(../images/logo.png);
+    display: block;
+    width: 174px;
+    height: 36px;
+    background-repeat: no-repeat;
+    background-position: left;
+    text-indent: 101%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.header ul{
+    float: right;
+}
+.header ul li {
+    display: inline-block;
+    font-size: 0px;
+}
+.header ul li a{
+    line-height:36px;
+    color:#42d3a9;
+    font-size: 14px;
+    padding: 12px;
+    
+    border-bottom: 4px solid transparent;
+}
+.header ul li a:hover{
+    transition:border-bottom 2s ;
+    border-bottom: 4px solid #42d3a9;
+}
+.banner{
+    float: left;
+    background-image: url(../images/banner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.banner{
+    line-height:346px;
+    margin-top: 10px;
+    width: 100%;
+}
+.blackBanner{
+    vertical-align:middle;
+    display: inline-block;
+    width: 100%;
+    padding-top: 32px;
+    padding-left: 16px;
+    padding-bottom: 32px;
+    background-color:rgba(0,0,0,0.5);
+}
+.blackBanner h2{
+    text-align: left;
+    font-size: 32px;
+    color:#FFF;
+    line-height: 48px;
+}
+.content{
+    width: 960px;
+    margin: 0 auto;
+    letter-spacing:2px;
+}
+.content ul>li>img{
+}
+.content ul>li{
+    margin-top:70px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    width: 300px;
+    height: 325px;
+    display: inline-block;
+    text-align: center;
+    padding:20px;
+    vertical-align: middle;
+}
+.content ul>li h2{
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 700;
+}
+.content ul>li p{
+    text-align: left;
+    margin-top: 20px;
+    font-size: 16px;
+}
+.content ol{
+    text-align: left;
+}
+.content ol>li{
+    text-align: left;
+    list-style: inside;
+}
+
+
+
+
+
+
