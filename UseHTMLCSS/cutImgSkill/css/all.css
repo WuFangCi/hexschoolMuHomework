@@ -7,31 +7,37 @@
 body{
     font-family:微軟正黑體,PingFangSC-Regular, sans-serif;
 }
-
-
 .iconFollow{
+    float: left;
     background-color: #f6f6f6;
     width: 100%;
-    text-align: right;
     vertical-align: middle;
-    font-size: 0;
+    font-size:0;
+}
+.iconFollow li{
+float: right;
 }
 .iconFollow a {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    display: inline-block;
     font-size: 16px;
-    line-height:28px;
+}
+.iconFollow img{
+    float: left;
+    display: block;
 }
 .iconFollow a:hover{
     color:orange;
 }
-.iconFollow>:first-child {
-    color:#4460a0;
-    padding-right: 8px;
-   
-}
-.iconFollow>:last-child {
+.iconFollow ul li:first-child>a{
     color:#00aaec;
     border-left: #cccccc solid 1px;
     padding-left: 8px;
+}
+.iconFollow ul li:last-child>a {
+    color:#4460a0;
+    padding-right: 8px;
 }
 .header{
     width: 100%;
@@ -116,12 +122,10 @@ body{
 .content ul>li>div>img{
     vertical-align: middle;
 }
-
 .content ul>li{
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
     width: 32%;
-    height: 325px;
     display: inline-block;
     text-align: center;
     padding:20px;
