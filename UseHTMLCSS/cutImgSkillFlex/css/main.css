@@ -206,7 +206,6 @@ h3{
     background-color: #00cc99;
     align-self: flex-end;
 }
-
 .personalData input[type="submit"]:hover{
     cursor:pointer;
     background-color:#045642;
