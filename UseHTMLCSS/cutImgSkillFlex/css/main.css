@@ -161,6 +161,9 @@ h3{
     width: 90%;
     text-align: left;
 }
+.whatIsDifferent table tr th:first-child{
+    text-indent: 1rem;
+}
 .interestingClass{
     background-image: url(../images/bgc.png);
     background-color: #009872;
