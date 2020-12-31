@@ -112,7 +112,9 @@ font-family:PingFangSC-Regular,'Microsoft JhengHei', sans-serif;
     transform:scale(1.2);
 }
 
-/*reusable css*/
+/*
+reusable css
+*/
 
 .lightGreenColor{
     color :#00cc99;
@@ -199,20 +201,13 @@ padding-top: 10px;
     height: 540px;
     position: relative;
 }
-/* index css*/
-.indexBanner{
-    background-image: url(../images/bannerMain.png);
-}
-.indexBanner h2{
-    color: #00cc99;
+.banner h2{
+    color: #ffffff;
     font-size: 40px;
     font-weight: 700;
     line-height: 1.8em;
 }
-.indexBanner h2 span{
-    color:#FFF;
-}
-.indexBanner button{
+.greenButton{
     padding: 16px 30px;
     font-size: 20px;
     border-radius :4px;
@@ -223,10 +218,24 @@ padding-top: 10px;
     text-align: center;
     font-weight: 700;
 }
-.indexBanner button:hover{
+.greenButton:hover{
     cursor:pointer;
     background-color: rgb(9, 156, 137);
 }
+
+/* 
+    index css
+*/
+.indexBanner{
+    background-image: url(../images/bannerMain.png);
+}
+.indexBanner .pl40 h2{
+    color: #00cc99;
+}
+.indexBanner h2 span{
+    color:#FFF;
+}
+
 .selectClass button{
     color :#00cc99;
     font-size: 16px;
@@ -338,6 +347,68 @@ padding-top: 10px;
 .wrapIndexFormData input[type="submit"]:focus{
     outline:none;
 }
-/* course css*/
+/* 
+course css
+*/
+.courseBanner{
+    background-image: url(../images/bannerClass.png);
+}
+.courseBanner h3{
+    font-size: 24px;
+    font-weight: 600;
+    color: #00cc99;
+}
+.courseBanner .imgHtml{
+    position: absolute;
+    top: 25%;
+    right:17%;
+}
+.courseBanner .imgCss{
+    position: absolute;
+    top: 25%;
+    right:5%;
+}
+.courseContent{
+    padding: 0 200px;
+}
+.courseContent h2 span{
+    line-height: 1.5em;
+    color:#000;
+}
+.courseContent ul li{
+    color: #9b9b9b;
+    list-style:inside;
+}
+.whatIsSpecial ol{
+    color: #323232;
+    list-style-type: decimal;
+    font-weight: 600;
+}
+.courseTitle table{
+    width: 100%;
+    text-align: left;
+}
+.courseTitle tr th,.courseTitle tr td{
+    font-weight: 600;
+    padding: 20px 40px; 
+}
+.courseTitle table tr:nth-child(odd){
+    background-color: #ebebeb;
+}
+.courseTitle table tr:nth-child(even){
+    color:#9b9b9b;
+}
+.courseForm{
+    background-color: #ebebeb;
+    height: 400px;
+}
+.courseForm h3{
+    font-weight: 600;
+    font-size: 30px;
+    margin-right: 60px;
+    line-height: 1.8em;
+}
+
+
 
 /* Q&A css */
