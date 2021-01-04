@@ -19,7 +19,9 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
+/* 
+HTML5 display-role reset for older browsers 
+*/
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -46,7 +48,9 @@ body{
 box-sizing: border-box;
 font-family:PingFangSC-Regular,'Microsoft JhengHei', sans-serif; 
 }
-/* layout css*/
+/* 
+    layout css
+*/
 .header{
     box-sizing: border-box;
     width: 100%;
@@ -348,7 +352,7 @@ padding-top: 10px;
     outline:none;
 }
 /* 
-course css
+    course css
 */
 .courseBanner{
     background-image: url(../images/bannerClass.png);
@@ -409,7 +413,9 @@ course css
     line-height: 1.8em;
 }
 
-/* Q&A css */
+/* 
+    Q&A css 
+*/
 .QandAbanner{
     background-image: url(../images/bannerQMark.png);
 }
@@ -427,7 +433,6 @@ course css
     font-size: 24px;
     width: 600px;
     border : 0;
-    /* outline: none; */
     height: 50px;
     border-radius: 4px;
 
@@ -441,7 +446,6 @@ course css
     font-size: 25px;
     padding: 8px;
     background-color: #fff;
-    /* vertical-align: middle; */
 }
 .wrapInputSerach button:active{
     background-color: #aaa;
@@ -473,7 +477,7 @@ course css
 .QandAContent a:hover{
     color:deeppink;
 }
-.QandAContent ul{
+.QandAContent ol{
     line-height: 1.5em;
     font-weight: 600;
     color: #9b9b9b;
@@ -482,7 +486,7 @@ course css
     text-indent: 2em;
 }
 
-.QandAContent ol{
+.QandAContent ul{
     line-height: 1.5em;
     font-weight: 600;
     color: #9b9b9b;
