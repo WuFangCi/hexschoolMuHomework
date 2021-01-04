@@ -320,14 +320,14 @@ padding-top: 10px;
     font-size: 30px;
     line-height: 1.8em;
 }
-.wrapIndexFormData input[type="text"]{
+.wrapFormData input[type="text"]{
     width: 450px;
     padding: 12px 16px;
     margin-bottom: 20px;
     border:0;
     border-radius: 4px;
 }
-.wrapIndexFormData input[type="submit"]{
+.wrapFormData input[type="submit"]{
     box-sizing: border-box;
     font-weight: 600;
     background-color: #00cc99;
@@ -339,12 +339,12 @@ padding-top: 10px;
     padding: 10px;
     font-size: 20px;
 }
-.wrapIndexFormData input[type="submit"]:hover{
+.wrapFormData input[type="submit"]:hover{
     cursor: pointer;
     background-color: rgb(9, 156, 137);
 }
 
-.wrapIndexFormData input[type="submit"]:focus{
+.wrapFormData input[type="submit"]:focus{
     outline:none;
 }
 /* 
@@ -409,6 +409,107 @@ course css
     line-height: 1.8em;
 }
 
-
-
 /* Q&A css */
+.QandAbanner{
+    background-image: url(../images/bannerQMark.png);
+}
+.QandAbanner h2{
+    font-size: 50px;
+}
+.QandAbanner h3{
+    font-size: 24px;
+    font-weight: 600;
+    color: #00cc99;
+}
+.wrapInputSerach input[type="text"]{
+    box-sizing: border-box;
+    padding: 15px;
+    font-size: 24px;
+    width: 600px;
+    border : 0;
+    /* outline: none; */
+    height: 50px;
+    border-radius: 4px;
+
+}
+.wrapInputSerach button{
+    position: relative;
+    left: -50px;
+    box-sizing: border-box;
+    outline:none;
+    border: 0;
+    font-size: 25px;
+    padding: 8px;
+    background-color: #fff;
+    /* vertical-align: middle; */
+}
+.wrapInputSerach button:active{
+    background-color: #aaa;
+}
+.wrapInputSerach button:hover{
+    cursor:pointer;
+}
+.QandAContent{
+    padding: 60px 120px;
+}
+.QandAContent h4{
+    margin-top: 30px;
+    line-height: 1.5em;
+    font-weight: 600;
+    color:#323223;
+    font-size: 20px;
+}
+.QandAContent p{
+    line-height: 1.5em;
+    font-weight: 600;
+    color:#323223;
+    color: #9b9b9b;
+    font-size: 16px;
+}
+.QandAContent a{
+    text-decoration: none;
+    color: #42d3a9;
+}
+.QandAContent a:hover{
+    color:deeppink;
+}
+.QandAContent ul{
+    line-height: 1.5em;
+    font-weight: 600;
+    color: #9b9b9b;
+    list-style: inside;
+    list-style-type: decimal;
+    text-indent: 2em;
+}
+
+.QandAContent ol{
+    line-height: 1.5em;
+    font-weight: 600;
+    color: #9b9b9b;
+    list-style: inside;
+    text-indent: 3em;
+}
+.QandAContent .refundNext{
+    color:#323223;
+}
+.QandAForm{
+    background-color: #ebebeb;
+    padding-top: 140px;
+    padding-bottom: 60px;
+}
+.QandAForm textarea{
+    resize:none;
+    border:0;
+    padding:8px 16px ;
+    width: 450px;
+    border-radius: 4px;
+    height:200px;
+}
+.QandAForm h3{
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.8em;
+}
+.QandAForm input[type="submit"]{
+    margin-top: 20px;
+}
