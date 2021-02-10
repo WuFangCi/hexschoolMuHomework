@@ -60,6 +60,9 @@ table {
 .aife{
 	align-items: flex-end;
 }
+.fxww{
+	flex-wrap: wrap;
+}
 *{
 	box-sizing: border-box;
 }
@@ -147,7 +150,7 @@ table {
 	line-height: 1.2em;
 }
 
-@media (min-width:767px){
+@media (min-width:768px){
 	#ham{
 		display:none;
 	}
@@ -243,7 +246,7 @@ transform:scale(1);
 .wrapRelatedLink .socialMedia a>i:hover{
 transform:scale(1.2);
 }
-@media (min-width:769px){
+@media (min-width:768px){
 	.aboutHexRestaurant{
 		max-width: 300px;
 	}
@@ -266,5 +269,102 @@ transform:scale(1.2);
 	.wrapRelatedLink{
 		margin-top: 0;
 	}
+}
 
+
+/* content */
+
+.deliciousTips{
+	margin: 50px 0;
+	color: #3D1101;
+}
+.deliciousTips li{
+	width: 100%;
+	margin-bottom: 30px;
+}
+.deliciousTips h3{
+	width: 100%;
+	text-align: center;
+	line-height: 1.5em;
+	font-size: 20px;
+}
+
+.deliciousTips p{
+	margin-top: 12px;
+	width: 200px;
+	font-size: 16px;
+}
+.deliciousTips li{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.deliciousTips li img{
+	border-radius: 50%;
+}
+.deliciousTips h4{
+	text-align: center;
+	margin-top: 20px;
+}
+.deliciousTips ul{
+	margin-top: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+@media (min-width:768px){
+	.deliciousTips ul{
+		justify-content: space-between;
+	}
+	.deliciousTips li{
+		width: 33.333%;
+		margin-bottom: 30px;
+	}
+	.wrapWhatIsTipsH3 h3{
+		position: relative;
+	}
+	.wrapWhatIsTipsH3 h3::before,.wrapWhatIsTipsH3 h3::after{
+		content:'';
+		display: block;
+		background-color:#979797;
+		width: 20%;
+		height: 1px;
+		position: absolute;
+	}
+	.wrapWhatIsTipsH3 h3::before{
+		top: 50%;
+	}
+	.wrapWhatIsTipsH3 h3::after{
+		top: 50%;
+		right: 0;
+	}
+	.deliciousTips .wrapWhatIsTipsH3{
+		margin: 0 auto;
+		width: 450px;
+	}
+}
+.chef {
+	color: #fff;
+	background-color: #3D1101;
+}
+.chef h3{
+	font-size: 20px;
+}
+.chef p{
+	margin-top:16px;
+	font-size: 16px;
+}
+.chef img{
+	width: 100%;
+}
+.wrapChefTxt{
+	padding: 50px 25px;
+}
+@media (min-width:768px){
+	.chef .container{
+		display: flex;
+	}
+	.chef .container img{
+		margin-left: 40px;
+	}	
 }
