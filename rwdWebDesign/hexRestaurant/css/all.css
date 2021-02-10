@@ -41,3 +41,230 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/*share*/
+.df{
+	display: flex;
+}
+.jcsb{
+	justify-content: space-between;
+}
+.jcc{
+	justify-content: center;
+}
+.aic{
+	align-items: center;
+}
+.fxdc{
+	flex-direction: column;
+}
+.aife{
+	align-items: flex-end;
+}
+*{
+	box-sizing: border-box;
+}
+
+/* header */
+.header h1{
+	height: 24px;
+	width:120px ;
+	text-indent: 101%;
+	overflow: hidden;
+	background-image: url(../images/logo_w@svg.svg);
+	background-repeat: no-repeat;
+	white-space: nowrap;
+}
+.navbar{
+	flex-wrap: wrap;
+	color: #fff;
+	padding: 16px;
+	position: fixed;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.75);
+	z-index: 100;
+}
+.navbar li a{
+	display: block;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 900;
+	text-decoration: none;
+	padding: 10px;
+	position: relative;
+}
+.navbar li a:after{
+	display: block;
+	height: 5px;
+	width: 100%;
+	transform:scaleX(0);
+	transform-origin: center;
+	background-color: #fff;
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.navbar li a:hover:after{
+	transform:scaleX(.1);
+	transition: transform 1s;
+}
+#ham{
+	cursor: pointer;
+}
+.navbar ul{
+	text-align: center;
+	max-height: 0;
+	overflow: hidden;
+	transition:max-height 1s ease-in-out;
+}
+.menu-show .navbar ul{
+	max-height: 400px;
+}
+.banner{
+	padding-left: 1%;
+	padding-right: 1%;
+	background-image: url(../images/header_mobile.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 422px;
+}
+.bannerBlackArea{
+	padding: 20px 6px;
+	text-align: center;
+	color: rgb(255, 255, 255);
+	background-color: rgba(0, 0, 0, 0.35);
+}
+.bannerBlackArea h2{
+	font-size: 38px;
+	line-height: 1.5em;
+}
+.bannerBlackArea span{
+	display: block;
+}
+.bannerBlackArea p{
+	margin-top: 16px;
+	font-size: 16px;
+	line-height: 1.2em;
+}
+
+@media (min-width:767px){
+	#ham{
+		display:none;
+	}
+	.banner{
+		background-size:cover;
+		background-image: url(../images/header_desktop.png);
+	}
+	.container{
+		margin: 0 auto;
+		max-width: 1440px;
+	}
+
+	.navbar .container{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.navbar ul{
+		max-height: 100%;
+		display: flex;
+	}
+	.bannerBlackArea span{
+		display: inline;
+	}
+	.navbar li a:hover:after{
+		transform:scaleX(1);
+		transition: transform 1s;
+	}
+}
+/* footer */
+.footer{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 50px 12px;
+	background-color: #efe9e7;
+	color:#3d1101;
+}
+.footer h3{
+	font-size: 24px;
+}
+.footer p{
+	margin-top:16px ;
+	font-size: 16px;
+}
+.footer h2{
+	background-image: url(../images/logo_l@svg.svg);
+	background-repeat: no-repeat;
+	text-indent: 101%;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 245px;
+	height: 49px;
+}
+.wrapRelatedLink{
+	margin-top: 30px;
+}
+.wrapRelatedLink a{
+	transition:transform .5s;
+	transform:scale(1);
+}
+.wrapRelatedLink a:hover{
+	transform:scale(1.1);
+}
+.contactUs{
+	max-width: 200px;
+	margin-top: 30px;
+}
+.contactUs ol{
+	margin-top: 16px;
+	list-style:inside;
+}
+.socialMedia {
+	margin-top: 22px;
+}
+.socialMedia a{
+	font-size: 30px;
+}
+
+.socialMedia a:nth-child(1){
+	color: #db4437;
+}
+.socialMedia a:nth-child(2){
+	color: #41ABE1 ;
+	}
+.socialMedia a:nth-child(3){
+	color: #3A5795;
+}
+.wrapRelatedLink .socialMedia a>i{
+	transition:transform .5s;
+transform:scale(1);
+	}
+.wrapRelatedLink .socialMedia a>i:hover{
+transform:scale(1.2);
+}
+@media (min-width:769px){
+	.aboutHexRestaurant{
+		max-width: 300px;
+	}
+	.footer .container{
+		width: 100%;
+	}
+	.footer .container{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 50px 40px; 
+	}
+	.contactUs{
+		margin-top: 0;
+		margin-left: 20px;
+	}
+	.wrapAboutContact{
+		display: flex;
+	}
+	.wrapRelatedLink{
+		margin-top: 0;
+	}
+
+}
