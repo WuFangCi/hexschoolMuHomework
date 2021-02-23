@@ -488,6 +488,7 @@ transform:scale(1.2);
   margin: 0;
 }
 .mapPosition label{
+	text-align: left;
 	color:#3d1101;
 	font-size: 14px;
 	margin-bottom: 10px;
