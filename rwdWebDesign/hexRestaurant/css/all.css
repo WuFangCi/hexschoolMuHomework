@@ -47,6 +47,10 @@ html{
 html a{
     text-decoration:none;
 }
+body{
+	box-sizing: border-box;
+	font-family:PingFangSC-Regular,'Microsoft JhengHei', sans-serif; 
+	}
 /*share*/
 .df{
 	display: flex;
@@ -484,7 +488,6 @@ transform:scale(1.2);
   margin: 0;
 }
 .mapPosition label{
-	align-self: start;
 	color:#3d1101;
 	font-size: 14px;
 	margin-bottom: 10px;
@@ -745,7 +748,186 @@ transform:scale(1.2);
 	.menu .container .wrapOnlineOrder{
 		flex-shrink: 0;
 	}
-	
-	
-
 }
+
+/* login page */
+.wrapLogin{
+	padding: 5% 0;
+	color: #3D1101;
+}
+.login h4{
+	font-weight: 900;
+	text-align: center;
+	margin-top: 10px;
+}
+.login>form{
+	width: 100%;
+	padding: 15px;
+	margin-top:35px;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	border-top: 3px solid #FF5e45;
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+.login>form h5{
+	align-self: center;
+	font-weight: 900;
+}
+.login>form label{
+	margin-top: 16px;
+}
+.inputBox i{
+	color: rgba(61, 17, 1, 0.5);
+	position: relative;
+	right:-10px;
+	z-index: 100;
+	vertical-align:middle;
+}
+.login>form>a{
+	line-height: 1.5em;
+	font-size: 14px;
+	color:#FF5e45;
+}
+.login>form>a:hover{
+	color:#ff5e45b0;
+}
+.login>form input{
+	text-indent: 30px;
+	position: relative;
+	right: 20px;
+	margin-top: 8px;
+	outline:none;
+	border:2px solid #dddddd;
+	border-radius: 4px;
+	width: 250px;
+	height: 32px;
+	padding: 8px;
+}
+.wrapLoginButton{
+	width: 100%;
+}
+.wrapLoginButton button{
+	width: 120px;
+	height: 32px;
+	border-radius: 4px;
+	border:none;
+}
+.wrapLoginButton button a{
+	display: block;
+	color: #FFF;
+}
+.wrapLoginButton button:first-of-type{
+	background-color: rgba(0, 0, 0, 0.35);
+	margin-right: 20px;
+}
+.wrapLoginButton button:last-of-type{
+	background-color:rgb(245, 108, 35);
+}
+.wrapLoginButton button:last-of-type:hover{
+	background-color: rgba(245, 109, 35, 0.80);
+}
+.wrapLoginButton button:first-of-type:hover{
+	background-color: rgba(0, 0, 0, 0.5);;
+}
+
+/* register page  */
+.wrapRegister{
+	padding: 60px;
+	color: #3D1101;
+	background-color: #efe9e7;
+}
+.wrapRegister h4{
+	font-weight: 900;
+	line-height: 2em;
+}
+.register{
+	padding: 10px 30px 60px;
+	margin-top: 20px;
+}
+.register h5{
+	font-weight: 900;
+	text-align: center;
+	line-height: 2em;
+}
+.contract{
+	font-size: 18px;
+	width: 250px;
+	line-height: 1.2em;
+	margin-bottom: 20px;
+}
+.wrapContractAndInputer{
+	margin-top: 16px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.wrapContractAndInputer>form>a{
+	line-height: 1.5em;
+	font-size: 14px;
+	color:#FF5e45;
+}
+.register .inputBox:nth-of-type(2){
+	margin-top: 10px;
+}
+.wrapContractAndInputer>form>a:hover{
+	color:#ff5e45b0;
+}
+.wrapContractAndInputer>form input{
+	text-indent: 30px;
+	position: relative;
+	right: 20px;
+	margin-top: 8px;
+	outline:none;
+	border:2px solid #dddddd;
+	border-radius: 4px;
+	width: 250px;
+	height: 32px;
+	padding: 8px;
+}
+.wrapContractAndInputer button{
+	width: 120px;
+	height: 32px;
+	border-radius: 4px;
+	border:none;
+}
+.wrapContractAndInputer button a{
+	display: block;
+	color: #FFF;
+}
+.wrapContractAndInputer button:first-of-type{
+	background-color: rgba(0, 0, 0, 0.35);
+	margin-right: 20px;
+}
+.wrapContractAndInputer button:last-of-type{
+	background-color:rgb(245, 108, 35);
+}
+.wrapContractAndInputer button:last-of-type:hover{
+	background-color: rgba(245, 109, 35, 0.80);
+}
+.wrapContractAndInputer button:first-of-type:hover{
+	background-color: rgba(0, 0, 0, 0.5);
+}
+.wrapContractAndInputer .inputBox i{
+	right: 8px;
+	top: 32px;
+	}
+@media (min-width:768px){
+	.register{
+		padding: 10px 30px 60px;
+		margin-top: 20px;
+		border-top: 4px solid #FF5e45;
+	}
+	.wrapContractAndInputer{
+		margin-top: 16px;
+		flex-direction: row;
+	}
+	.contract{
+		margin-right: 10px;
+	}
+	.wrapContractAndInputer .inputBox i{
+		right: -10px;
+		top: 0;
+	}
+}
+
