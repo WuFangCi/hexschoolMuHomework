@@ -95,7 +95,7 @@ body{
 	color: #fff;
 	padding: 16px;
 	position: fixed;
-	/* width: 100%; */
+	width: 100%;
 	background-color: rgba(0, 0, 0, 0.75);
 	z-index: 100;
 }
@@ -843,7 +843,7 @@ transform:scale(1.2);
 	line-height: 2em;
 }
 .register{
-	padding: 10px 30px 60px;
+	padding: 10px 0px 60px;
 	margin-top: 20px;
 }
 .register h5{
@@ -880,9 +880,9 @@ transform:scale(1.2);
 	outline:none;
 	border:2px solid #dddddd;
 	border-radius: 4px;
-	width: 250px;
 	height: 32px;
 	padding: 8px;
+	width: 100%;
 }
 .wrapContractAndInputer button{
 	width: 120px;
@@ -907,8 +907,14 @@ transform:scale(1.2);
 .wrapContractAndInputer button:first-of-type:hover{
 	background-color: rgba(0, 0, 0, 0.5);
 }
+
+.wrapContractAndInputer .inputBox {
+	position: relative;
+	}
 .wrapContractAndInputer .inputBox i{
-	right:-30px;
+	position: absolute;
+	left:20px;
+	top:16px;
 	}
 @media (min-width:768px){
 	.register{
@@ -924,7 +930,7 @@ transform:scale(1.2);
 		margin-right: 10px;
 	}
 	.wrapContractAndInputer .inputBox i{
-		top: 0;
+		/* top: 0; */
 	}
 }
 
