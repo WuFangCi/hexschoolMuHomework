@@ -876,8 +876,6 @@ transform:scale(1.2);
 }
 .wrapContractAndInputer>form input{
 	text-indent: 30px;
-	position: relative;
-	right: 20px;
 	margin-top: 8px;
 	outline:none;
 	border:2px solid #dddddd;
@@ -910,8 +908,7 @@ transform:scale(1.2);
 	background-color: rgba(0, 0, 0, 0.5);
 }
 .wrapContractAndInputer .inputBox i{
-	right: 8px;
-	top: 32px;
+	right:-30px;
 	}
 @media (min-width:768px){
 	.register{
@@ -927,7 +924,6 @@ transform:scale(1.2);
 		margin-right: 10px;
 	}
 	.wrapContractAndInputer .inputBox i{
-		right: -10px;
 		top: 0;
 	}
 }
