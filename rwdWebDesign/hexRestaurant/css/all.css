@@ -845,6 +845,7 @@ transform:scale(1.2);
 .register{
 	padding: 10px 0px 60px;
 	margin-top: 20px;
+
 }
 .register h5{
 	font-weight: 900;
@@ -921,6 +922,7 @@ transform:scale(1.2);
 		padding: 10px 30px 60px;
 		margin-top: 20px;
 		border-top: 4px solid #FF5e45;
+		box-shadow: 9px 9px 10px rgba(0, 0, 0, 0.5);
 	}
 	.wrapContractAndInputer{
 		margin-top: 16px;
@@ -928,9 +930,6 @@ transform:scale(1.2);
 	}
 	.contract{
 		margin-right: 10px;
-	}
-	.wrapContractAndInputer .inputBox i{
-		/* top: 0; */
 	}
 }
 
