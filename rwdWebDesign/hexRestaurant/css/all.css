@@ -678,7 +678,6 @@ transform:scale(1.2);
 	font-size: 14px;
 	top: 6%;
 	right: -17%;
-	width:100%;
 	padding: 2% 20%;
 	background-color: #00CC99;
 }
@@ -833,6 +832,7 @@ transform:scale(1.2);
 .wrapLoginButton button:first-of-type:hover{
 	background-color: rgba(0, 0, 0, 0.5);;
 }
+
 
 
 /* register page  */
