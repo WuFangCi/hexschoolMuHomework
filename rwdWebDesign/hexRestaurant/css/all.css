@@ -721,7 +721,12 @@ transform:scale(1.2);
 .wrapMenuCard button i{
 	margin-right: 5%;
 }
-
+@media (max-width:1200px) and (min-width:769px),(max-width:400px) {
+	.wrapMenuCard li>div p{
+		right: -40%;
+		padding: 2% 37%;
+	}
+}
 @media (min-width:768px){
 	.menu .container{
 		display: flex;
@@ -750,6 +755,13 @@ transform:scale(1.2);
 		flex-shrink: 0;
 	}
 }
+/* @media (max-width:400px){
+	.wrapMenuCard li>div p{
+		top: 6%;
+		right: -40%;
+		padding: 2% 37%;
+	}
+} */
 
 /* login page */
 .wrapLogin{
