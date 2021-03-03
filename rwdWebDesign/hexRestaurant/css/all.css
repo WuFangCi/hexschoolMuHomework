@@ -755,13 +755,6 @@ transform:scale(1.2);
 		flex-shrink: 0;
 	}
 }
-/* @media (max-width:400px){
-	.wrapMenuCard li>div p{
-		top: 6%;
-		right: -40%;
-		padding: 2% 37%;
-	}
-} */
 
 /* login page */
 .wrapLogin{

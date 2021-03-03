@@ -1,0 +1,29 @@
+@mixin container($mxw){
+    margin: 0 auto;
+    max-width: $mxw;
+}
+// @mixin sideDistance($attrNickname,$attr,$size,$loopTime){
+//   @for $i from 1 through $loopTime {
+//     .#{$attrNickname+'-'+$i}{
+//       #{$attr}:$size*$i;
+//     }
+//   }
+// }
+
+@mixin flex{
+  .df{
+    display: flex;
+  }
+  .jcc{
+    justify-content: center;
+  }
+  .aic{
+    align-items: center;
+  }
+  .jcsb{
+    justify-content: space-between;
+  }
+  .fxdc{
+    flex-direction: column;
+  }
+}

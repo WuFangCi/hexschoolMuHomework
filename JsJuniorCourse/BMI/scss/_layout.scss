@@ -1,0 +1,49 @@
+$main_color:#FFD366;
+$headerBGC:#424242;
+$contentBGC:#f5f5f5;
+
+
+.container{
+  @include container(1024px);
+}
+// define base padding and margin
+// $side:left,right,bottom,top;
+// $sideNickName:l,r,b,t;
+// @include sideDistance('m',margin,10px,6);
+// @for $i from 1 through 4{
+//     @include sideDistance(#{'m'+nth($sideNickName,$i)},#{margin+'-'+nth($side,$i)},10px,6);
+// }
+
+// @include sideDistance(p,padding,10px,6);
+
+@include flex;
+
+.header{
+    background-color: $headerBGC;
+    .container{
+        display: flex;
+        justify-content: center;
+    }
+    .result{
+        background-color: $main_color;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 120px;
+        vertical-align: middle;
+        font-size:$font_size_2d;
+        cursor: pointer;
+    }
+    .wrap_inputHW{
+        input{
+            display: block;
+        }
+    }
+}
+
+
+
+
+
+
