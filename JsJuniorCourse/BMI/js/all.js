@@ -6,5 +6,5 @@ getResult.addEventListener('click',calculate);
 function calculate() {
     let heightValue = (getHeight.value/100);
     let weightValue = (getWeight.value);
-    console.log(Math.round(weightValue/Math.pow(heightValue,2)*100)/100);
+    console.log(Math.round((weightValue/Math.pow(heightValue,2))*100)/100);
 }
