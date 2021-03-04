@@ -1,6 +1,85 @@
-.result{
-    background-color:$main_color;
+@mixin BMIrecord(){
+    ul {
+        color: #424242;
+        font-weight: 500;
+        @content;
+        // border-left: 7px solid $BMI_color_lightgreen;
+        margin: 15px auto;
+        display: flex;
+        justify-content: space-between;
+        font-size: $font_size_1d7;
+        width: 625px;
+        background-color: #fff;
+    }
+    li{
+        line-height: 3em;
+        span{
+            font-size: $font_size_base;
+        }
+    }
 }
-.wrap_reset{
-    display:none;
+@mixin result(){
+    .result{
+        display: block;
+        @content;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 120px;
+        vertical-align: middle;
+        font-size:$font_size_2d;
+        user-select: none;
+        cursor: pointer;
+        &:hover{
+            background-color: rgb(255, 197, 51);
+            filter:drop-shadow(0px 0px 10px #ffc53399);
+        }
+        &:active{
+            background-color: #DEA921;
+        }
+    }
+}
+@mixin reset(){
+    .reset{
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+        border:6px solid #86D73E;
+        position: relative;
+        >div{
+            cursor: pointer;
+            box-sizing: content-box;
+            border: 3px solid $headerBGC;
+            border-radius: 50%;
+            position: absolute;
+            background-color: #86D73E;
+            height: 30px;
+            width: 30px;
+            text-align: center;
+            line-height: 34px;
+            bottom:0;
+            right:-10px;
+            user-select: none;
+        }
+        p{
+            color:$BMI_color_lightgreen;
+            &:nth-of-type(1){
+                font-size: 32px;
+            }
+            &:nth-of-type(2){
+                font-size: 14px;
+                line-height: 2em;
+            }
+        }
+    }
+}
+@mixin wrap_reset(){
+    .wrap_reset{
+        display: none;
+        >p{
+            font-size: 32px;
+            @content;
+        }
+    }
 }

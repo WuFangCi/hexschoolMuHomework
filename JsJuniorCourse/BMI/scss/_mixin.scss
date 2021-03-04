@@ -2,13 +2,13 @@
     margin: 0 auto;
     max-width: $mxw;
 }
-// @mixin sideDistance($attrNickname,$attr,$size,$loopTime){
-//   @for $i from 1 through $loopTime {
-//     .#{$attrNickname+'-'+$i}{
-//       #{$attr}:$size*$i;
-//     }
-//   }
-// }
+@mixin sideDistance($attrNickname,$attr,$size,$loopTime){
+  @for $i from 1 through $loopTime {
+    .#{$attrNickname+'-'+$i}{
+      #{$attr}:$size*$i;
+    }
+  }
+}
 
 @mixin flex{
   .df{
@@ -25,5 +25,15 @@
   }
   .fxdc{
     flex-direction: column;
+  }
+}
+
+@mixin disabled_input_arrow{
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  }
+  input[type="number"]{
+  -moz-appearance: textfield;
   }
 }

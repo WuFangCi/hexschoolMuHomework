@@ -6,39 +6,70 @@ $contentBGC:#f5f5f5;
 .container{
   @include container(1024px);
 }
+
 // define base padding and margin
-// $side:left,right,bottom,top;
-// $sideNickName:l,r,b,t;
-// @include sideDistance('m',margin,10px,6);
-// @for $i from 1 through 4{
-//     @include sideDistance(#{'m'+nth($sideNickName,$i)},#{margin+'-'+nth($side,$i)},10px,6);
-// }
-
-// @include sideDistance(p,padding,10px,6);
-
+$side:left,right,bottom,top;
+$sideNickName:l,r,b,t;
+@include sideDistance('m',margin,15px,6);
+@for $i from 1 through 4{
+    @include sideDistance(#{'m'+nth($sideNickName,$i)},#{margin+'-'+nth($side,$i)},10px,6);
+}
+@include sideDistance(p,padding,15px,6);
+@for $i from 1 through 4{
+    @include sideDistance(#{'p'+nth($sideNickName,$i)},#{padding+'-'+nth($side,$i)},10px,6);
+}
 @include flex;
-
+@include disabled_input_arrow;
 .header{
     background-color: $headerBGC;
-    .container{
-        display: flex;
-        justify-content: center;
-    }
-    .result{
+    @include result(){
         background-color: $main_color;
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        text-align: center;
-        line-height: 120px;
-        vertical-align: middle;
-        font-size:$font_size_2d;
-        cursor: pointer;
-    }
+    };
     .wrap_inputHW{
+        label{
+            color: $main_color;
+            line-height: 2em;
+        }
         input{
+            font-size: $font_size_2d;
+            display: block;
+            width:250px;
+            height: 40px;
+            border: 2px solid $main_color;
+            border-radius: 10px;
+            background-color: $headerBGC;
+            padding: 8px;
+            outline:none;
+            
+            &:focus{
+                background-color: #757575;
+                &::placeholder{
+                    color:$contentBGC;
+                }
+            }
+            &::placeholder{
+                font-size: $font_size_2d;
+                line-height: 40px;
+            }
+           
+        }
+        label{
             display: block;
         }
+    }
+    
+  @include wrap_reset(){
+        color:$BMI_color_lightgreen;
+  }
+  @include reset;
+}
+
+.footer{
+    background-color: $main_color;
+    text-align: center;
+    img{
+        filter:invert(1) grayscale(1)brightness(4);
+        transform:scale(.5)
     }
 }
 
