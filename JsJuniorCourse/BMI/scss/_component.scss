@@ -3,7 +3,6 @@
         color: #424242;
         font-weight: 500;
         @content;
-        // border-left: 7px solid $BMI_color_lightgreen;
         margin: 15px auto;
         display: flex;
         justify-content: space-between;
@@ -20,7 +19,7 @@
 }
 @mixin result(){
     .result{
-        display: block;
+        // display: block;
         @content;
         width: 120px;
         height: 120px;
@@ -44,7 +43,7 @@
         height: 120px;
         width: 120px;
         border-radius: 50%;
-        border:6px solid #86D73E;
+        border:6px solid;
         position: relative;
         >div{
             cursor: pointer;
@@ -52,7 +51,6 @@
             border: 3px solid $headerBGC;
             border-radius: 50%;
             position: absolute;
-            background-color: #86D73E;
             height: 30px;
             width: 30px;
             text-align: center;
@@ -62,23 +60,14 @@
             user-select: none;
         }
         p{
-            color:$BMI_color_lightgreen;
             &:nth-of-type(1){
                 font-size: 32px;
             }
             &:nth-of-type(2){
                 font-size: 14px;
-                line-height: 2em;
+                padding-top: 4px;
             }
         }
     }
 }
-@mixin wrap_reset(){
-    .wrap_reset{
-        display: none;
-        >p{
-            font-size: 32px;
-            @content;
-        }
-    }
-}
+

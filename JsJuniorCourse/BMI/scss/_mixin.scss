@@ -2,7 +2,7 @@
     margin: 0 auto;
     max-width: $mxw;
 }
-@mixin sideDistance($attrNickname,$attr,$size,$loopTime){
+@mixin baseDistance($attrNickname,$attr,$size,$loopTime){
   @for $i from 1 through $loopTime {
     .#{$attrNickname+'-'+$i}{
       #{$attr}:$size*$i;
@@ -35,5 +35,18 @@
   }
   input[type="number"]{
   -moz-appearance: textfield;
+  }
+}
+@mixin display{
+  .db{
+    display: block;
+  }
+  .dn{
+    display: none;
+  }
+}
+@mixin visibility{
+  .vh{
+    visibility: hidden;
   }
 }

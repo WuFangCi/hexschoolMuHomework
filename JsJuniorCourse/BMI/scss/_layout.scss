@@ -1,8 +1,3 @@
-$main_color:#FFD366;
-$headerBGC:#424242;
-$contentBGC:#f5f5f5;
-
-
 .container{
   @include container(1024px);
 }
@@ -10,17 +5,21 @@ $contentBGC:#f5f5f5;
 // define base padding and margin
 $side:left,right,bottom,top;
 $sideNickName:l,r,b,t;
-@include sideDistance('m',margin,15px,6);
+@include baseDistance('m',margin,15px,6);
+@include baseDistance('p',padding,15px,6);
+
 @for $i from 1 through 4{
-    @include sideDistance(#{'m'+nth($sideNickName,$i)},#{margin+'-'+nth($side,$i)},10px,6);
+    @include baseDistance('m'+nth($sideNickName,$i),margin+'-'+nth($side,$i),10px,6);
+    @include baseDistance('p'+nth($sideNickName,$i),padding+'-'+nth($side,$i),10px,6);
 }
-@include sideDistance(p,padding,15px,6);
-@for $i from 1 through 4{
-    @include sideDistance(#{'p'+nth($sideNickName,$i)},#{padding+'-'+nth($side,$i)},10px,6);
-}
+
 @include flex;
 @include disabled_input_arrow;
+@include visibility;
 .header{
+    // .container{
+    //     position: relative;
+    // }
     background-color: $headerBGC;
     @include result(){
         background-color: $main_color;
@@ -40,7 +39,6 @@ $sideNickName:l,r,b,t;
             background-color: $headerBGC;
             padding: 8px;
             outline:none;
-            
             &:focus{
                 background-color: #757575;
                 &::placeholder{
@@ -51,16 +49,26 @@ $sideNickName:l,r,b,t;
                 font-size: $font_size_2d;
                 line-height: 40px;
             }
-           
         }
         label{
             display: block;
         }
     }
+    .wrap_reset{
+        position: relative;
+        >p:last-of-type{
+            font-size: 32px;
+            position: absolute;
+            bottom: 50px;
+            left: 150px;
+            white-space: nowrap;
+        }
+    }
+    .promptText{
+        color: red;
+        font-size:$font_size_2d;
+    }
     
-  @include wrap_reset(){
-        color:$BMI_color_lightgreen;
-  }
   @include reset;
 }
 
