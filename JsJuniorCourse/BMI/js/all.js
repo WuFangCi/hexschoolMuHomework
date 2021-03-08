@@ -72,7 +72,7 @@ function lookResult() {
             break;
     }
     printResetOrResult(BMIValue,BMIText);
-    printTemplate(getWeight.value,getWeight.value,BMIText,BMIValue,calculateColor);
+    printTemplate(getWeight.value,getHeight.value,BMIText,BMIValue,calculateColor);
 }
 function calculateUserBMI(height,weight){
     height=height/100;
