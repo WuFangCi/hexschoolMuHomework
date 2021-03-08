@@ -1,13 +1,15 @@
-let getHeight = document.getElementById('enter_height');
-let getWeight = document.getElementById('enter_weight')
-let getResult = document.querySelector('.result');
-let getWrapReset = document.querySelector('.wrap_reset');
-let getReset = document.querySelector('.reset');
-let getBMIText = getWrapReset.children[1];
-let getResetImgDiv = getReset.children[2];
+const getHeight = document.getElementById('enter_height');
+const getWeight = document.getElementById('enter_weight')
+const getResult = document.querySelector('.result');
+const getWrapReset = document.querySelector('.wrap_reset');
+const getReset = document.querySelector('.reset');
+const getBMIText = getWrapReset.children[1];
+const getResetImgDiv = getReset.children[2];
 let colorName =["_lightblue","_lightgreen","_orange1","_orange2","_red"];
 let calculateColor  ="";
-let getPromptText = document.querySelector('.promptText');
+const getPromptText = document.querySelector('.promptText');
+const getContent = document.querySelector(".content>.container");
+
 
 
 
@@ -35,40 +37,42 @@ function lookResult() {
         getPromptText.classList.add("vh");
     }
     let BMIValue =calculateUserBMI(getHeight.value,getWeight.value);
+    let BMIText = "";
     console.log(BMIValue);
     switch (true) {
         case (0<BMIValue &&BMIValue<18.5):
-            getBMIText.textContent= "過輕";
+            BMIText ="過輕";
             calculateColor = colorName[0];
             console.log("過輕");
             break;
         case (18.5<=BMIValue && BMIValue<24):
-            getBMIText.textContent="標準";
+            BMIText = "標準";
             calculateColor = colorName[1];
             console.log("標準");
             break;
         case (24<=BMIValue && BMIValue<27):
-            getBMIText.textContent="過重";
+            BMIText = "過重";
             calculateColor = colorName[2];
             console.log("過重");
             break;
         case(27<=BMIValue && BMIValue<30):
-            getBMIText.textContent="輕度肥胖";
+            BMIText = "輕度肥胖"
             calculateColor = colorName[3];
             console.log("輕度肥胖");
             break;
         case(30<=BMIValue && BMIValue<35):
-            getBMIText.textContent="中度肥胖";
+            BMIText = "中度肥胖";
             calculateColor = colorName[3];
             console.log("中度肥胖");
             break;
         case(BMIValue>=35):
-            getBMIText.textContent="重度肥胖";
+            BMIText = "重度肥胖";
             calculateColor = colorName[4];
             console.log("重度肥胖");
             break;
     }
-    printResetOrResult(BMIValue);
+    printResetOrResult(BMIValue,BMIText);
+    printTemplate(getWeight.value,getWeight.value,BMIText,BMIValue,calculateColor);
 }
 function calculateUserBMI(height,weight){
     height=height/100;
@@ -86,10 +90,30 @@ function toggleColor(color){
     getReset.classList.toggle("border_color"+color);
 }
 
-function printResetOrResult(value){
+
+function printResetOrResult(value,text){
     getReset.children[0].textContent = value;
+    getBMIText.textContent=text;
     toggleResetResult();
     toggleColor(calculateColor);
+}
+function printTemplate(weight,height,BMIText,BMI,color){
+      // get today and depending on the circumstance add zero
+      let dateObj = new Date();
+      let thisMonth = (dateObj.getMonth()+1);
+      thisMonth = thisMonth<10 ? ("0"+thisMonth):thisMonth;
+      let thisYear = dateObj.getFullYear();
+      let thisDate = dateObj.getDate();
+      thisDate = thisDate<10 ? ("0"+thisDate):thisDate;
+      let recorderTemplate = `
+  <ul class="pl-1 pr-1 border_left_color${color}">
+  <li>${BMIText}</li>
+  <li><span>BMI</span> ${BMI}</li>
+  <li><span>weight</span>${weight}kg</li>
+  <li><span>height</span>${height}cm</li>    <li><span>${thisMonth}-${thisDate}-${thisYear}</span></li>
+  </ul>
+  `;
+  getContent.innerHTML += recorderTemplate;
 }
 function goBack(){
     printResetOrResult();
