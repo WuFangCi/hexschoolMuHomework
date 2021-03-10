@@ -550,12 +550,13 @@ input[type="number"] {
   text-align: center;
 }
 
-.content ul {
+.content .list ul {
   color: #424242;
   font-weight: 500;
   margin: 15px auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 21px;
   width: 625px;
   background-color: #fff;
@@ -563,11 +564,50 @@ input[type="number"] {
   border-left-style: solid;
 }
 
-.content li {
+.content .list ul button {
+  outline: none;
+  border: none;
+  display: block;
+  border-radius: 4px;
+  padding: 8px;
+  color: #FFD366;
+  background-color: #424242;
+}
+
+.content .list ul button:hover {
+  background: #252525;
+}
+
+.content .list ul button:active {
+  background: #5f5f5f;
+}
+
+.content .list li {
   line-height: 3em;
 }
 
-.content li span {
+.content .list li span {
   font-size: 12px;
+}
+
+.content .container {
+  text-align: center;
+}
+
+.content .container button {
+  background-color: red;
+  outline: none;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.content .container button:hover {
+  background-color: #ff2222;
+}
+
+.content .container button:active {
+  background-color: #bb5858;
 }
 /*# sourceMappingURL=all.css.map */

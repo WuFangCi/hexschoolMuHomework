@@ -7,9 +7,31 @@
         text-align: center;
 
     }
-    @include BMIrecord(){
-        // border-left: 7px solid $BMI_color_lightgreen;
-    };
+    .list{
+        @include BMIrecord(){
+            // border-left: 7px solid $BMI_color_lightgreen;
+        };
+    }
+    .container{
+        text-align: center;
+        button{
+            // display: block;
+            background-color: red;
+            outline: none;
+            color:white;
+            border: none;
+            border-radius:4px;
+            padding: 8px;
+            &:hover{
+                background-color: rgb(255, 34, 34);
+                }
+            &:active{
+                    background-color: rgb(187, 88, 88);
+                }
+        }
+    
+    }
+
     
 }
 
