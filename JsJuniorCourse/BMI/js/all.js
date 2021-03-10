@@ -29,7 +29,7 @@ printLocalStorageBMI();
 
 getResult.addEventListener('click',lookResult);
 getResetImgDiv.addEventListener('click',goBack);
-function lookResult() {
+function isItInput(){
     let promptStr = "您沒有輸入";
     if(getHeight.value===""){
         promptStr +="身高";
@@ -40,65 +40,76 @@ function lookResult() {
     if(promptStr!=="您沒有輸入"){
         getPromptText.classList.remove("vh");
         getPromptText.textContent = promptStr;
-        return;
+        return true;
     }else{
         getPromptText.classList.add("vh");
     }
     if(getHeight.value <=0 ||getWeight.value<=0){
         getPromptText.textContent = "身高或體重格是錯誤";
         getPromptText.classList.remove("vh");
-        return;
+        return true;
     }else{
         getPromptText.classList.add("vh");
+    }
+}
+function lookResult() {
+    let getIsItInput =isItInput();
+    if (getIsItInput) {
+        return;
     }
     let BMIValue =calculateUserBMI(getHeight.value,getWeight.value);
     let BMIText = "";
     let dateObj = new Date();
-    console.log(BMIValue);
-    switch (true) {
-        case (0<BMIValue &&BMIValue<18.5):
-            BMIText ="過輕";
-            calculateColor = colorName[0];
-            console.log("過輕");
-            break;
-        case (18.5<=BMIValue && BMIValue<24):
-            BMIText = "標準";
-            calculateColor = colorName[1];
-            console.log("標準");
-            break;
-        case (24<=BMIValue && BMIValue<27):
-            BMIText = "過重";
-            calculateColor = colorName[2];
-            console.log("過重");
-            break;
-        case(27<=BMIValue && BMIValue<30):
-            BMIText = "輕度肥胖"
-            calculateColor = colorName[3];
-            console.log("輕度肥胖");
-            break;
-        case(30<=BMIValue && BMIValue<35):
-            BMIText = "中度肥胖";
-            calculateColor = colorName[3];
-            console.log("中度肥胖");
-            break;
-        case(BMIValue>=35):
-            BMIText = "重度肥胖";
-            calculateColor = colorName[4];
-            console.log("重度肥胖");
-            break;
-    }
-    printResetOrResult(BMIValue,BMIText);
     let todayAry =[];
+    console.log(BMIValue);
+    BMIText=BMIRange(BMIValue);
+    printResetOrResult(BMIValue,BMIText);
     todayAry = yearMonthDate(dateObj); //日期轉換成01-10-2020
     recordAry.push(buildBMIObj(todayAry[2],todayAry[1],todayAry[0],BMIValue,BMIText,getWeight.value,getHeight.value,todayAry[3],calculateColor));
     localStorage.setItem('item', JSON.stringify(recordAry));
     printLocalStorageBMI();
-
 }
+
 function calculateUserBMI(height,weight){
     height=height/100;
     let result= Math.round((weight/Math.pow(height,2))*100)/100;
     return result;
+}
+function BMIRange(BMIValue){
+    switch (true) {
+        case (0<BMIValue &&BMIValue<18.5):
+            calculateColor = colorName[0];
+            console.log("過輕");
+            return "過輕";
+            break;
+        case (18.5<=BMIValue && BMIValue<24):
+            calculateColor = colorName[1];
+            console.log("標準");
+            return "標準";
+            break;
+        case (24<=BMIValue && BMIValue<27):
+            calculateColor = colorName[2];
+            console.log("過重");
+            return "過重";
+            break;
+        case(27<=BMIValue && BMIValue<30):
+            calculateColor = colorName[3];
+            console.log("輕度肥胖");
+            return "輕度肥胖";
+            break;
+        case(30<=BMIValue && BMIValue<35):
+            // BMIText = "中度肥胖";
+            calculateColor = colorName[3];
+            console.log("中度肥胖");
+            return "中度肥胖";
+            break;
+        case(BMIValue>=35):
+            // BMIText = "重度肥胖";
+            calculateColor = colorName[4];
+            console.log("重度肥胖");
+            return "重度肥胖";
+            break;
+    }
 }
 function toggleResetResult(){
     getResult.classList.toggle('dn');
