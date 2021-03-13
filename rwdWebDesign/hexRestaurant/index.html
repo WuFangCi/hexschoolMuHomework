@@ -132,7 +132,7 @@
                 <img src="images/Map.png" alt="">
                 <form>
                     <label for="customerName">姓名</label>
-                    <input type="text" name="customerName" placeholder="六角講師吃尾牙">
+                    <input type="text" id="customerName" name="customerName" placeholder="六角講師吃尾牙">
                     <label for="phoneNumber">電話</label>
                     <input type="number" name="phoneNumber" placeholder="02-1234567">
                     <label for="email">信箱</label>
@@ -142,9 +142,9 @@
                     <p>是否需要素食</p>
                     <div class="radio">
                         <label for="yes">是</label>
-                        <input type="radio" name="vegetable">
-                        <label for="no">否</label>
-                        <input type="radio" name="vegetable">
+                        <input type="radio" id="yes"name="vegetable">
+                        <label for="no" >否</label>
+                        <input id="no" type="radio" name="vegetable">
                     </div>
                     <div class="wrapSubmit">
                         <input type="submit" value="取消">
@@ -173,8 +173,8 @@
                     </h3>
                     <ol>
                         <li>高雄市中正五路到底</li>
-                        <li>+886 886 886</li>
-                        <li>service@hexschool.com</li>
+                        <li><a href="tel:+886 886 886">+886 886 886</a></li>
+                        <li><a href="mailto:service@hexschool.com">service@hexschool.com</a></li>
                     </ol>
                 </div>
             </div>
@@ -183,11 +183,11 @@
                     <h2>六角西餐廳
                     </h2>
                 </a>
-                <div class="socialMedia">
-                    <a href="#"> <i class="fab fa-google-plus-square"></i></a>
-                    <a href="#"> <i class="fab fa-twitter-square"></i></a>
-                    <a href="#"> <i class="fab fa-facebook-square"></i></a>
-                </div>
+                <ul class="socialMedia df">
+                    <li><a href="#"> <i class="fab fa-google-plus-square"></i></a></li>
+                    <li><a href="#"> <i class="fab fa-twitter-square"></i></a></li>
+                    <li><a href="#"> <i class="fab fa-facebook-square"></i></a></li>
+                </ul>
             </div>
         </div>
 

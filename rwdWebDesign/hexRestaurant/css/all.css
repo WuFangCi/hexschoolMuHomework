@@ -91,7 +91,6 @@ body{
 	white-space: nowrap;
 }
 .navbar{
-	flex-wrap: wrap;
 	color: #fff;
 	padding: 16px;
 	position: fixed;
@@ -195,9 +194,6 @@ body{
 }
 /* footer */
 .footer{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 	padding: 50px 12px;
 	background-color: #efe9e7;
 	color:#3d1101;
@@ -215,7 +211,7 @@ body{
 	text-indent: 101%;
 	white-space: nowrap;
 	overflow: hidden;
-	width: 245px;
+	width: 250px;
 	height: 49px;
 }
 .wrapRelatedLink{
@@ -229,12 +225,16 @@ body{
 	transform:scale(1.1);
 }
 .contactUs{
-	max-width: 200px;
+	max-width: 400px;
 	margin-top: 30px;
 }
 .contactUs ol{
 	margin-top: 16px;
 	list-style:inside;
+}
+.contactUs li a{
+	color: #3d1101;
+	display: inline-block;
 }
 .socialMedia {
 	margin-top: 22px;
@@ -242,14 +242,19 @@ body{
 .socialMedia a{
 	font-size: 30px;
 }
-
-.socialMedia a:nth-child(1){
+.socialMedia li{
+	margin: 0 4px;
+}
+.socialMedia li:nth-of-type(1) a{
+	display: block;
 	color: #db4437;
 }
-.socialMedia a:nth-child(2){
+.socialMedia li:nth-of-type(2) a{
+	display: block;
 	color: #41ABE1 ;
 	}
-.socialMedia a:nth-child(3){
+.socialMedia li:nth-of-type(3) a{
+	display: block;
 	color: #3A5795;
 }
 .wrapRelatedLink .socialMedia a>i{
@@ -274,7 +279,7 @@ transform:scale(1.2);
 	}
 	.contactUs{
 		margin-top: 0;
-		margin-left: 20px;
+		margin-left: 50px;
 	}
 	.wrapAboutContact{
 		display: flex;
@@ -333,10 +338,10 @@ transform:scale(1.2);
 		width: 33.333%;
 		margin-bottom: 30px;
 	}
-	.wrapWhatIsTipsH3 h3{
+	.wrapWhatIsTipsH3 {
 		position: relative;
 	}
-	.wrapWhatIsTipsH3 h3::before,.wrapWhatIsTipsH3 h3::after{
+	.wrapWhatIsTipsH3 ::before,.wrapWhatIsTipsH3 h3::after{
 		content:'';
 		display: block;
 		background-color:#979797;
@@ -344,10 +349,10 @@ transform:scale(1.2);
 		height: 1px;
 		position: absolute;
 	}
-	.wrapWhatIsTipsH3 h3::before{
+	.wrapWhatIsTipsH3 ::before{
 		top: 50%;
 	}
-	.wrapWhatIsTipsH3 h3::after{
+	.wrapWhatIsTipsH3 ::after{
 		top: 50%;
 		right: 0;
 	}
@@ -376,8 +381,10 @@ transform:scale(1.2);
 }
 .chef .chefImg{
 	background-image: url(../images/main_chef_brown.png);
+	background-position:center;
 	flex-shrink: 0;
-	width: 470px;
+	max-width: 320px;
+	width: 100%;
 	height: 460px;
 }
 .chef .chefImg:hover{
@@ -392,6 +399,9 @@ transform:scale(1.2);
 	flex-direction: row;
 	align-items:flex-start;
 	justify-content: center;
+	}
+	.chef .chefImg{
+		max-width: 470px;
 	}
 }
 /* listion someone impression */
@@ -517,8 +527,6 @@ transform:scale(1.2);
 .mapPosition .radio label{
 	margin-bottom: 0;
 	margin-right: 6px;
-	height: 16px;
-	width: 16px;
 }
 
 /* form sumbit */
@@ -612,6 +620,15 @@ transform:scale(1.2);
 	margin-top: 20px;
 	min-width:100px;
 }
+.wrapTotalCart a{
+	display: block;
+	color: #3d1101;
+	
+}
+.wrapTotalCart a:hover{
+	transform:scale(1.2);
+	transition: transform .5s;
+}
 .wrapTotalCart i{
 	display: block;
 	position: relative;
@@ -652,13 +669,15 @@ transform:scale(1.2);
 	padding: 1%;
 }
 .wrapMenuCard li{
+	/* width:250px; */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	padding: 10px;
-	margin:2% 1% 0 1%;
-	overflow: hidden;
+	/* overflow: hidden; */
 	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	margin: 10px;
+	position: relative;
 }
 .wrapMenuCard>li>div>i{
 	padding: 5%;
@@ -668,10 +687,19 @@ transform:scale(1.2);
 	font-size: 2rem;
 }
 .wrapMenuCard li>div{
-	position: relative;
 	width: 100%;
 }
-.wrapMenuCard li>div p{
+.hotSale{
+	position: absolute;
+	background-color: #00CC99;
+	transform: rotate(45deg);
+	/* width: 200px; */
+	width: 40%;
+	right: 0;
+	padding-left: 1%;
+	padding-right: 1%;
+}
+/* .wrapMenuCard li>div p{
 	color: #FFF;
 	transform: rotate(45deg);
 	position: absolute;
@@ -680,7 +708,7 @@ transform:scale(1.2);
 	right: -17%;
 	padding: 2% 20%;
 	background-color: #00CC99;
-}
+} */
 .wrapMenuCard li img{
 	width: 100%;
 }
@@ -720,12 +748,6 @@ transform:scale(1.2);
 }
 .wrapMenuCard button i{
 	margin-right: 5%;
-}
-@media (max-width:1200px) and (min-width:769px),(max-width:400px) {
-	.wrapMenuCard li>div p{
-		right: -40%;
-		padding: 2% 37%;
-	}
 }
 @media (min-width:768px){
 	.menu .container{
