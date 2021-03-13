@@ -595,6 +595,7 @@ input[type="number"] {
 }
 
 .content .container button {
+  cursor: pointer;
   background-color: red;
   outline: none;
   color: white;
@@ -604,10 +605,10 @@ input[type="number"] {
 }
 
 .content .container button:hover {
-  background-color: #ff2222;
+  background-color: #f87b7b;
 }
 
 .content .container button:active {
-  background-color: #bb5858;
+  background-color: #ffc3c3;
 }
 /*# sourceMappingURL=all.css.map */

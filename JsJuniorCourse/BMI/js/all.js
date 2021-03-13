@@ -18,7 +18,7 @@ function printLocalStorageBMI(){
     if(localStorage.getItem('item')!=null){
         recordAry=JSON.parse(localStorage.getItem('item'));  
         for (let i = 0; i <recordAry.length; i++){
-            printTemplate(recordAry[i].weight,recordAry[i].height,recordAry[i].BMIText,recordAry[i].BMI,recordAry[i].color,recordAry[i].year,recordAry[i].month,recordAry[i].date);
+            printTemplate(recordAry[i].weight,recordAry[i].height,recordAry[i].BMIText,recordAry[i].BMI,recordAry[i].color,recordAry[i].year,recordAry[i].month,recordAry[i].date,recordAry[i].getTime);
         }
     }
     else{
@@ -150,13 +150,14 @@ function printResetOrResult(value,text){
     toggleResetResult();
     toggleColor(calculateColor);
 }
-function printTemplate(weight,height,BMIText,BMI,color,thisYear,thisMonth,thisDate){
-      let recorderTemplate = `
+function printTemplate(weight,height,BMIText,BMI,color,thisYear,thisMonth,thisDate,getTime){
+    let recorderTemplate = `
   <ul class="pl-1 pr-1 border_left_color${color}">
   <li>${BMIText}</li>
   <li><span>BMI</span> ${BMI}</li>
   <li><span>weight</span>${weight}kg</li>
-  <li><span>height</span>${height}cm</li>    <li><span>${thisMonth}-${thisDate}-${thisYear}</span></li>
+  <li><span>height</span>${height}cm</li><li><span>${thisMonth}-${thisDate}-${thisYear}</span></li>
+  <button data-item="${getTime}">刪除</button>
   </ul>
   `;
   getContent.innerHTML += recorderTemplate;
@@ -175,3 +176,17 @@ function deleteLocal(){
     }
 printLocalStorageBMI();
 }
+
+getContent.addEventListener('click', function(e){
+    if(e.target.dataset.item){
+        let itemIndex;
+        recordAry.forEach(function(item,index){
+            if(item.getTime==e.target.dataset.item){
+                itemIndex = index;
+            }
+        });
+        recordAry.splice(itemIndex,1);
+        localStorage.setItem('item',JSON.stringify(recordAry));
+        printLocalStorageBMI();
+    }
+})
