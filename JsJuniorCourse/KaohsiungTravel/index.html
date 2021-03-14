@@ -4,9 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>高雄旅遊資訊</title>
+    <link rel="stylesheet" href="css/all.css">
 </head>
 <body>
+    <div class="header">
+        <div class="container">
+            <h1>高雄旅遊資訊</h1>
+            <select name="" id="">
+                <option value="高雄">高雄</option>
+                <option value="台北">台北</option>
+            </select>
+        </div>
+    </div>
+    <div class="content">
+
+    </div>
+    <div class="footer">
+        <div class="container">
+            <h2>高雄旅遊網</h2>
+            <p>
+                資料來源：高雄市政府
+            </p>
+        </div>
+    </div>
     
+<!-- <script>
+    let url ='https://api.kcg.gov.tw/api/service/get/9c8e1450-e833-499c-8320-29b36b7ace5c'
+    fetch(url,{
+        method:'GET',
+        mode:'cors',
+        header: new Headers({
+            'Content-Type': 'text/json'
+        })
+    })
+    .then(function(response) {
+        if(response.status !== 200) {
+            throw new Error(response.status);
+            console.log("網路有連線問題");
+        }
+        // console.log(response);
+        return response.json();
+    }).then(result =>{
+        console.log(result);
+        // console.log(result);
+        console.log(result.data.XML_Head.Infos.Info);
+    }).catch(error =>{
+        console.log("錯誤代碼為"+error);
+    })
+</script> -->
 </body>
 </html>

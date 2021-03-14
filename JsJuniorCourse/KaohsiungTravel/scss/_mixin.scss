@@ -1,0 +1,4 @@
+@mixin container($mxw){
+    margin: 0 auto;
+    max-width: $mxw;
+}

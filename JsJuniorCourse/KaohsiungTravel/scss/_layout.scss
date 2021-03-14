@@ -1,0 +1,49 @@
+.container{
+    @include container(1024px);
+  }
+.header{
+    background-image: url(../images/banner.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    min-height: 380px;
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // justify-content: center;
+        padding-top: 80px;
+    }
+    h1{
+        font-size: 40px;
+    }
+    select{
+        padding-left: 10px;
+        width: 450px;
+        height: 48px;
+        font-size: 18px;
+        appearance:none;
+        -moz-appearance:none;
+        -webkit-appearance:none;
+        background: url("../images/icons_down.png") no-repeat right 15px center;
+        width:450px;
+        height:48px;
+        background-color:rgba(255, 255, 255, 0.7);
+        border-radius: 4px;
+        border: 1px solid #ffffff;
+
+    }
+    
+}
+.footer{
+    padding: 24px 0;
+    background-color: #569ac8;
+    font-size: 14px;
+    text-align: center;
+    h2{
+        color: #FFFFFF;
+    }
+    p{
+        color:#ffd336;
+    }
+   
+}
