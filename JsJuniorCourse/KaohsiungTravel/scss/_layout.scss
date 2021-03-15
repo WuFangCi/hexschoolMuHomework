@@ -5,18 +5,18 @@
     background-image: url(../images/banner.png);
     background-size:cover;
     background-repeat: no-repeat;
-    min-height: 380px;
-    .container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        // justify-content: center;
-        padding-top: 80px;
-    }
+    min-height: 660px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+    position: relative;
     h1{
         font-size: 40px;
+        color:#FFF;
     }
     select{
+        margin: 80px 0;
         padding-left: 10px;
         width: 450px;
         height: 48px;
@@ -30,9 +30,44 @@
         background-color:rgba(255, 255, 255, 0.7);
         border-radius: 4px;
         border: 1px solid #ffffff;
-
     }
-    
+    .hotDistrict{
+        position: absolute;
+        bottom: -90px;
+        background-color: #fff;
+        border-radius: 4px;
+        padding: 25px;
+        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+        h2{
+            font-size: 18px;
+        }
+    }
+    .wrapHotDistrict{
+        button{
+            border:none;
+            border-radius:4px;
+            padding:10px 35px;
+            color:#FFF;
+            font-size: 20px;
+            margin: 20px;
+            &:nth-of-type(1){
+                background-color: #8a82cc;
+            }
+            &:nth-of-type(2){
+                background-color: #ffa782;
+            }
+            &:nth-of-type(3){
+                background-color: #f5d105;
+            }
+            &:nth-of-type(4){
+                background-color: #559AC8;
+            }
+            &:hover{
+                filter:opacity(.8);
+                cursor: pointer;
+            }
+        }
+    }
 }
 .footer{
     padding: 24px 0;
@@ -45,5 +80,4 @@
     p{
         color:#ffd336;
     }
-   
 }
