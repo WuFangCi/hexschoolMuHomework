@@ -61,7 +61,7 @@ function showDataInfo(e) {
 
 function renderDataView(view,district){
     let template =` <li>
-    <div class="wrapLocation">
+    <div class="wrapLocation" style='background-image: url(${view.Picture1})'>
       <h4>${view.Name}</h4>
       <h5>${district}</h5>
     </div>

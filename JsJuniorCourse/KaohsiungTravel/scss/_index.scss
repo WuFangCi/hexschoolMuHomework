@@ -102,11 +102,12 @@ border-color: #559AC8 transparent transparent transparent;
     }
     }
     .wrapLocation{
-        background-image: url("https://picsum.photos/id/684/600/400");
+        // background-image: url("https://picsum.photos/id/684/600/400");
+        // background-position: center;
+        background-size: cover;
         height: 120px;
         color: #fff;
         position: relative;
-        background-image: url("https://picsum.photos/id/1003/600/400");
         h4,h5{
             padding: 10px 20px;
             position: absolute;

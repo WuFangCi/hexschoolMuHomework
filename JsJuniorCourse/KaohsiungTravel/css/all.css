@@ -278,11 +278,10 @@ body {
 }
 
 .renderData .wrapLocation {
-  background-image: url("https://picsum.photos/id/684/600/400");
+  background-size: cover;
   height: 120px;
   color: #fff;
   position: relative;
-  background-image: url("https://picsum.photos/id/1003/600/400");
 }
 
 .renderData .wrapLocation h4, .renderData .wrapLocation h5 {
