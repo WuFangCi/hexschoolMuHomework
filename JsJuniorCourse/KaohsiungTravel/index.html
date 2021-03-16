@@ -1,111 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>高雄旅遊資訊</title>
-    <link rel="stylesheet" href="css/all.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/all.css" />
+  </head>
+  <body>
     <div class="header">
-        <h1>高雄旅遊資訊</h1>
-        <select name="" id="">
-            <option value="">- - 請選擇行政區 - -</option>
-            <option value="高雄">高雄</option>
-            <option value="台北">台北</option>
-        </select>
-        <div class="hotDistrict">
-            <h2>
-                熱門行政區
-            </h2>
-            <div class="wrapHotDistrict">
-                <button>
-                    苓雅區
-                </button>
-                <button>
-                    三民區
-                </button>
-                <button>
-                    新興區
-                </button>
-                <button>
-                    鹽埕區
-                </button>
-            </div>
+      <h1>高雄旅遊資訊</h1>
+      <select name="" id="selectDistrict">
+        <option value="請選擇行政區">- - 請選擇行政區 - -</option>
+      </select>
+      <div class="hotDistrict">
+        <h2>熱門行政區</h2>
+        <div class="wrapHotDistrict">
+          <button>苓雅區</button>
+          <button>三民區</button>
+          <button>新興區</button>
+          <button>鹽埕區</button>
         </div>
+      </div>
     </div>
     <div class="content">
-        <div class="container">
-            <a href="#">
-                <div class="wrapGoData">
-                    <div class="iconTriangle">
-                    </div>
-                </div>
-            </a>
-            <h3>
-                {{三民區}}
-            </h3>
+      <div class="container">
+        <a href="#">
+          <div class="wrapGoData">
+            <div class="iconTriangle"></div>
+          </div>
+        </a>
+        <h3>{{三民區}}</h3>
 
-            <ul class="renderData">
-                <li>
-                    <div class="wrapLocation">
-                        <h4>高雄願景館</h4>
-                        <h5>三民區</h5>
-                    </div>
-                    <p class="businessHours">
-                        <img src="images/icons_clock.png" alt="clock">
-                        週二至週日10:00-18:00，每週一公休</p>
-                    <p class="viewAddress">
-                        <img src="images/icons_pin.png" alt="pin">
-                        高雄市三民區建國二路318號</p>
-                    <div class="wrapPhoneVisit">
-                        <p class="viewPhone">
-                            <img src="images/icons_phone.png" alt="phone">
-                            <a href="#">886-7-2363357</a>
-                        </p>
-                        <p class="viewVisit">
-                            <img src="images/icons_tag.png" alt="tag">
-                            免費參觀
-                        </p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-      
+        <ul class="renderData">
+          <!-- <li>
+            <div class="wrapLocation">
+              <h4>高雄願景館</h4>
+              <h5>三民區</h5>
+            </div>
+            <p class="businessHours">
+              <img src="images/icons_clock.png" alt="clock" />
+              週二至週日10:00-18:00，每週一公休
+            </p>
+            <p class="viewAddress">
+              <img src="images/icons_pin.png" alt="pin" />
+              高雄市三民區建國二路318號
+            </p>
+            <div class="wrapPhoneVisit">
+              <p class="viewPhone">
+                <img src="images/icons_phone.png" alt="phone" />
+                <a href="tel:+886-7-2363357"> 886-7-2363357</a>
+              </p>
+              <p class="viewVisit">
+                <img src="images/icons_tag.png" alt="tag" />
+                一般票(適...
+              </p>
+              <p class="viewVisitMore">
+                一般票(適用於一般假日及國定假日09:30-18:00)成人票:250元兒童票:150元(2歲-140cm)優惠票:150元(憑本人身心障礙手冊，本人及陪同者1人可享優惠票)幸福票...
+              </p>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+      <a href="#" class="goTop"><img src="images/btn_goTop.png" alt="" /></a>
     </div>
     <div class="footer">
-        <div class="container">
-            <h2>高雄旅遊網</h2>
-            <p>
-                資料來源：高雄市政府
-            </p>
-        </div>
+      <div class="container">
+        <h2>高雄旅遊網</h2>
+        <p>資料來源：高雄市政府</p>
+      </div>
     </div>
-    
-<!-- <script>
-    let url ='https://api.kcg.gov.tw/api/service/get/9c8e1450-e833-499c-8320-29b36b7ace5c'
-    fetch(url,{
-        method:'GET',
-        mode:'cors',
-        header: new Headers({
-            'Content-Type': 'text/json'
-        })
-    })
-    .then(function(response) {
-        if(response.status !== 200) {
-            throw new Error(response.status);
-            console.log("網路有連線問題");
-        }
-        // console.log(response);
-        return response.json();
-    }).then(result =>{
-        console.log(result);
-        // console.log(result);
-        console.log(result.data.XML_Head.Infos.Info);
-    }).catch(error =>{
-        console.log("錯誤代碼為"+error);
-    })
-</script> -->
-</body>
+    <script src="js/all.js"></script>
+  </body>
 </html>

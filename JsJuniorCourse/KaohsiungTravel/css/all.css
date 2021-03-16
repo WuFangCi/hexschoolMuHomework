@@ -222,10 +222,50 @@ body {
 
 .renderData {
   margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .renderData li {
-  padding: 0px 20px;
+  position: relative;
+  box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.479);
+  width: 450px;
+}
+
+.renderData p {
+  padding: 8px 20px;
+}
+
+.renderData p img {
+  vertical-align: bottom;
+  padding: 0 8px;
+}
+
+.renderData .wrapPhoneVisit {
+  display: flex;
+  justify-content: space-between;
+}
+
+.renderData .viewVisit {
+  display: block;
+}
+
+.renderData .viewVisitMore {
+  display: none;
+  box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.479);
+  position: absolute;
+  background-color: #fff;
+  width: 50%;
+  right: -25%;
+  top: 75%;
+  z-index: 100;
+  padding-top: 35px;
+  border-radius: 4px;
+}
+
+.renderData .viewPhone {
+  display: block;
+  white-space: nowrap;
 }
 
 .renderData a {
@@ -233,33 +273,40 @@ body {
   text-decoration: none;
 }
 
-.wrapLocation {
+.renderData a:hover {
+  color: #AAA;
+}
+
+.renderData .wrapLocation {
   background-image: url("https://picsum.photos/id/684/600/400");
-  width: 450px;
   height: 120px;
   color: #fff;
-  padding: 24px;
   position: relative;
   background-image: url("https://picsum.photos/id/1003/600/400");
 }
 
-.wrapLocation h4, .wrapLocation h5 {
+.renderData .wrapLocation h4, .renderData .wrapLocation h5 {
+  padding: 10px 20px;
   position: absolute;
   bottom: 0px;
 }
 
-.wrapLocation h4 {
+.renderData .wrapLocation h4 {
   left: 0;
   font-size: 24px;
 }
 
-.wrapLocation h5 {
+.renderData .wrapLocation h5 {
   right: 0;
   font-size: 16px;
 }
 
-.wrapPhoneVisit {
-  display: flex;
-  justify-content: space-between;
+.goTop {
+  display: block;
+  width: 24px;
+  height: 24px;
+  position: fixed;
+  right: 40px;
+  bottom: 100px;
 }
 /*# sourceMappingURL=all.css.map */

@@ -1,18 +1,17 @@
 .content{
    margin-top: 100px;
-}
-.content .container{
+   .container{
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 40px;
-    h3{
-        color: #8A82CC;
-        font-size: 36px;
-        margin-top: 60px;
+        h3{
+            color: #8A82CC;
+            font-size: 36px;
+            margin-top: 60px;
+        }
     }
 }
-
 .wrapGoData{
     width: 32px;
     height: 32px;
@@ -58,36 +57,93 @@ border-color: #559AC8 transparent transparent transparent;
 }
 .renderData{
     margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
     li{
-        padding: 0px 20px;
+        position: relative;
+        box-shadow:1px 1px 10px 2px rgba(0, 0, 0, 0.479);
+        width: 450px;  
+    }
+    p{
+        padding: 8px 20px;
+        img{
+            vertical-align:bottom;
+            padding: 0 8px;
+        }
+    }
+    .wrapPhoneVisit{
+        display: flex;
+        justify-content: space-between;
+    }
+    .viewVisit{
+        display: block;
+    }
+    .viewVisitMore{
+        display: none;
+        box-shadow:1px 1px 10px 2px rgba(0, 0, 0, 0.479);
+        position: absolute;
+        background-color: #fff;
+        width: 50%;
+        right: -25%;
+        top: 75%;
+        z-index: 100;
+        padding-top: 35px;
+        border-radius: 4px;
+    }
+    .viewPhone{
+        display: block;
+        white-space:nowrap;
     }
     a{
         color: #000;
         text-decoration: none;
+    &:hover{
+        color: #AAA;
+    }
+    }
+    .wrapLocation{
+        background-image: url("https://picsum.photos/id/684/600/400");
+        height: 120px;
+        color: #fff;
+        position: relative;
+        background-image: url("https://picsum.photos/id/1003/600/400");
+        h4,h5{
+            padding: 10px 20px;
+            position: absolute;
+            bottom:0px;
+        }
+        h4{
+            left: 0;
+            font-size:24px;
+        }
+        h5{
+            right: 0;
+            font-size: 16px;
+        }
     }
 }
-.wrapLocation{
-    background-image: url("https://picsum.photos/id/684/600/400");
-    width: 450px;
-    height: 120px;
-    color: #fff;
-    padding: 24px;
-    position: relative;
-    background-image: url("https://picsum.photos/id/1003/600/400");
-    h4,h5{
-        position: absolute;
-        bottom:0px;
-    }
-    h4{
-        left: 0;
-        font-size:24px;
-    }
-    h5{
-        right: 0;
-        font-size: 16px;
-    }
-}
-.wrapPhoneVisit{
-    display: flex;
-    justify-content: space-between;
+
+
+
+// .businessHours,.viewAddress,.wrapPhoneVisit{
+//     padding: 8px 20px;
+// }
+// .viewPhone{
+//     img{
+//         padding-left: 2px;
+//     }
+//     white-space:nowrap;
+// }.businessHours{
+//     margin-top: 8px;
+// }
+// .wrapPhoneVisit{
+//     margin-bottom: 8px;
+// }
+.goTop{
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: fixed;
+    right: 40px;
+    bottom: 100px;
 }
