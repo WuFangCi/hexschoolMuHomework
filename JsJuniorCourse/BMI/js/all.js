@@ -15,15 +15,25 @@ getDelBtn.addEventListener('click',deleteLocal);
 let recordAry = [];
 function printLocalStorageBMI(){
     getContent.innerHTML ='';
-    if(localStorage.getItem('item')!=null){
-        recordAry=JSON.parse(localStorage.getItem('item'));  
-        for (let i = 0; i <recordAry.length; i++){
-            printTemplate(recordAry[i].weight,recordAry[i].height,recordAry[i].BMIText,recordAry[i].BMI,recordAry[i].color,recordAry[i].year,recordAry[i].month,recordAry[i].date,recordAry[i].getTime);
-        }
+    if(localStorage.getItem('item')===null) {
+        console.log(typeof(localStorage.getItem('item')));
+        console.log('沒有資料');
+        return
+    };
+
+    recordAry=JSON.parse(localStorage.getItem('item'));  
+    for (let i = 0; i <recordAry.length; i++){
+        printTemplate(recordAry[i].weight,recordAry[i].height,recordAry[i].BMIText,recordAry[i].BMI,recordAry[i].color,recordAry[i].year,recordAry[i].month,recordAry[i].date,recordAry[i].getTime);
     }
-    else{
-        return;
-    }
+    // if(localStorage.getItem('item')!=null){
+    //     recordAry=JSON.parse(localStorage.getItem('item'));  
+    //     for (let i = 0; i <recordAry.length; i++){
+    //         printTemplate(recordAry[i].weight,recordAry[i].height,recordAry[i].BMIText,recordAry[i].BMI,recordAry[i].color,recordAry[i].year,recordAry[i].month,recordAry[i].date,recordAry[i].getTime);
+    //     }
+    // }
+    // else{
+    //     return;
+    // }
 }
 printLocalStorageBMI();
 
@@ -31,40 +41,39 @@ getResult.addEventListener('click',lookResult);
 getResetImgDiv.addEventListener('click',goBack);
 function isItInput(){
     let promptStr = "您沒有輸入";
-    if(getHeight.value===""){
-        promptStr +="身高";
-    }
-    if (getWeight.value===""){
-        promptStr +="體重";
-    }
-    if(promptStr!=="您沒有輸入"){
+    if(getHeight.value===""||getWeight.value===""){
+        if(getHeight.value===""){
+            promptStr +="身高";
+        }
+        if (getWeight.value===""){
+            promptStr +="體重";
+        }
         getPromptText.classList.remove("vh");
         getPromptText.textContent = promptStr;
         return true;
-    }else{
-        getPromptText.classList.add("vh");
     }
     if(getHeight.value <=0 ||getWeight.value<=0){
-        getPromptText.textContent = "身高或體重格是錯誤";
+        getPromptText.textContent = "身高或體重格式錯誤";
         getPromptText.classList.remove("vh");
         return true;
-    }else{
-        getPromptText.classList.add("vh");
     }
+    getPromptText.classList.add("vh");
+    return false;
 }
 function lookResult() {
-    let getIsItInput =isItInput();
-    if (getIsItInput) {
+    // let getIsItInput =isItInput();
+    if (isItInput()) {
         return;
     }
-    let BMIValue =calculateUserBMI(getHeight.value,getWeight.value);
+    let BMIValue =0;
     let BMIText = "";
-    let dateObj = new Date();
     let todayAry =[];
+
+    BMIValue=calculateUserBMI(getHeight.value,getWeight.value);
     console.log(BMIValue);
     BMIText=BMIRange(BMIValue);
     printResetOrResult(BMIValue,BMIText);
-    todayAry = yearMonthDate(dateObj); //日期轉換成01-10-2020
+    todayAry = yearMonthDate(); //日期轉換成01-10-2020
     recordAry.push(buildBMIObj(todayAry[2],todayAry[1],todayAry[0],BMIValue,BMIText,getWeight.value,getHeight.value,todayAry[3],calculateColor));
     localStorage.setItem('item', JSON.stringify(recordAry));
     printLocalStorageBMI();
@@ -98,13 +107,11 @@ function BMIRange(BMIValue){
             return "輕度肥胖";
             break;
         case(30<=BMIValue && BMIValue<35):
-            // BMIText = "中度肥胖";
             calculateColor = colorName[3];
             console.log("中度肥胖");
             return "中度肥胖";
             break;
         case(BMIValue>=35):
-            // BMIText = "重度肥胖";
             calculateColor = colorName[4];
             console.log("重度肥胖");
             return "重度肥胖";
@@ -121,7 +128,8 @@ function toggleColor(color){
     getResetImgDiv.classList.toggle("background_color"+color);
     getReset.classList.toggle("border_color"+color);
 }
-function yearMonthDate(dateObj){
+function yearMonthDate(){
+    let dateObj = new Date();
     let thisMonth = (dateObj.getMonth()+1);
     thisMonth = thisMonth<10 ? ("0"+thisMonth):thisMonth;
     let thisYear = dateObj.getFullYear();
