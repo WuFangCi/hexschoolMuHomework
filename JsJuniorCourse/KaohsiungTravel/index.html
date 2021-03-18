@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,maximum-scale=1.0" />
     <title>高雄旅遊資訊</title>
     <link rel="stylesheet" href="css/all.css" />
   </head>
   <body>
-    <div class="header">
+    <div class="header" id="header">
+      
       <h1>高雄旅遊資訊</h1>
       <select name="" id="selectDistrict">
         <option value="請選擇行政區">- - 請選擇行政區 - -</option>
@@ -22,17 +23,19 @@
           <button>鹽埕區</button>
         </div>
       </div>
-    </div>
+    
+        
+      </div>
     <div class="content">
       <div class="container">
-        <a href="#">
+        <a href="#district">
           <div class="wrapGoData">
             <div class="iconTriangle"></div>
           </div>
         </a>
-        <h3>{{三民區}}</h3>
+        <h3 id="district"></h3>
 
-        <ul class="renderData">
+        <ul class="renderData" >
           <!-- <li>
             <div class="wrapLocation">
               <h4>高雄願景館</h4>
@@ -62,7 +65,7 @@
           </li> -->
         </ul>
       </div>
-      <a href="#" class="goTop"><img src="images/btn_goTop.png" alt="" /></a>
+      <a href="#header" class="goTop"><img src="images/btn_goTop.png" alt="" /></a>
     </div>
     <div class="footer">
       <div class="container">

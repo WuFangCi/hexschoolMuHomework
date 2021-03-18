@@ -45,6 +45,9 @@
         left: 135%;
         background-image: linear-gradient(to right, #559AC8 0%, #559AC8 40%, transparent 50%);
     }
+    @include tablet{
+        &::after,&::before{background-image: none;}
+    }
 }
 .iconTriangle{
 position: relative;
@@ -62,7 +65,11 @@ border-color: #559AC8 transparent transparent transparent;
     li{
         position: relative;
         box-shadow:1px 1px 10px 2px rgba(0, 0, 0, 0.479);
-        width: 450px;  
+        width: 450px;
+        margin: 18px 8px;
+    }
+    @include tablet{
+        width: 100%;
     }
     p{
         padding: 8px 20px;
@@ -102,10 +109,9 @@ border-color: #559AC8 transparent transparent transparent;
     }
     }
     .wrapLocation{
-        // background-image: url("https://picsum.photos/id/684/600/400");
-        // background-position: center;
+        background-position: center;
         background-size: cover;
-        height: 120px;
+        height: 337.5px;
         color: #fff;
         position: relative;
         h4,h5{
@@ -147,4 +153,11 @@ border-color: #559AC8 transparent transparent transparent;
     position: fixed;
     right: 40px;
     bottom: 100px;
+    // @include tablet{
+    //     display: none;
+    // }
+}
+html{
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }

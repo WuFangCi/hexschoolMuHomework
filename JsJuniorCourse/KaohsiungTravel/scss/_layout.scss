@@ -25,7 +25,6 @@
         -moz-appearance:none;
         -webkit-appearance:none;
         background: url("../images/icons_down.png") no-repeat right 15px center;
-        width:450px;
         height:48px;
         background-color:rgba(255, 255, 255, 0.7);
         border-radius: 4px;
@@ -43,7 +42,9 @@
         }
     }
     .wrapHotDistrict{
+        text-align: center;
         button{
+            
             border:none;
             border-radius:4px;
             padding:10px 35px;
@@ -68,16 +69,24 @@
             }
         }
     }
+@include tablet{
+    select{
+        width: 80%;
+    }
+}
 }
 .footer{
-    padding: 24px 0;
-    background-color: #569ac8;
-    font-size: 14px;
-    text-align: center;
-    h2{
-        color: #FFFFFF;
-    }
-    p{
-        color:#ffd336;
+    margin-top: 100px;
+    .container{
+        padding: 24px 0;
+        background-color: #569ac8;
+        font-size: 14px;
+        text-align: center;
+        h2{
+            color: #FFFFFF;
+        }
+        p{
+            color:#ffd336;
+        }
     }
 }

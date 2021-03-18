@@ -2,3 +2,8 @@
     margin: 0 auto;
     max-width: $mxw;
 }
+@mixin tablet {
+    @media(max-width :768px){
+        @content
+    }
+}
