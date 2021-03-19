@@ -45,10 +45,18 @@ district.forEach((element, index) => {
   getSelectDistrict.innerHTML += `<option value="${element}">${element}</option>`;
 });
 const getRenderData = document.querySelector(".renderData");
-getSelectDistrict.addEventListener("change", showDataInfo);
-let dataView = [];
+const getWrapPageNum = document.querySelector('.wrapPageNum');
 
-console.log();
+let dataView = [];
+let dataTem = [];
+let districtTem='';
+let currentPageNum = 1;
+let lastPageNum=0;
+
+
+
+
+
 function getRemoteData(callback) {
   fetch(url, {
     method: "GET",
@@ -69,15 +77,12 @@ function getRemoteData(callback) {
       // console.log(result);
       // comparison(result.data.XML_Head.Infos.Info);
       dataView = bulidData(result);
-      callback();
     })
     .catch((error) => {
       console.log("錯誤代碼為" + error);
     });
 }
-getRemoteData(function () {
-    // console.log(dataView);
-  });
+getRemoteData();
 
 function bulidData(remoteData) {
   let array = [];
@@ -88,30 +93,106 @@ function bulidData(remoteData) {
   return array;
 }
 
-
+getWrapPageNum.addEventListener('click',pageNumClick);
+getSelectDistrict.addEventListener("change", showDataInfo);
 function showDataInfo(e) {
-  let district = e.target.value;
-  if(district==="請選擇行政區"){
+  districtTem = e.target.value;
+  if(districtTem==="請選擇行政區"){
       return;
   }
-  if(dataView.length==0) {
-    getRenderData.innerHTML = `<h3>讀取中</h3>`;
-    getRemoteData(tttttt(district));
+  
+  dataTem=[];
+  currentPageNum = 1;
+  getWrapPageNum.innerHTML='';
+  getRenderData.innerHTML='';
+  buildDataTem(districtTem);
+
+  lastPageNum = Math.floor(dataTem.length/10)+1;
+  if(dataTem.length>10){
+    for (let i = 0; i <10;i++) {
+      renderDataView(dataTem[i],districtTem);
+    }
+    getWrapPageNum.innerHTML=`<button>&#060;prev</button>`;
+    for(let i=0; i<lastPageNum; i++){
+      getWrapPageNum.innerHTML+=`<button>${i+1}</button>`;
+    }
+    getWrapPageNum.innerHTML+=`<button>next&#062;</button>`;
+  }else{
+    for (let i = 0; i <dataTem.length; i++) {
+      renderDataView(dataTem[i],districtTem);
+    }
   }
-  tttttt(district);
-  function tttttt(district) {
-    console.log(district);
-    getRenderData.previousElementSibling.textContent =district;
-    getRenderData.innerHTML='';
-    dataView.forEach((item, index) => {
-      console.log(district);
-      if (item.Add.indexOf(district) != -1) {
-        renderDataView(item, district);
+
+  console.log("選擇行政區後的最後一頁"+lastPageNum);
+}
+
+function pageNumClick(e){
+  if(e.target.nodeName!='BUTTON'){
+    return;
+  }
+  if(e.target.textContent!="<prev"&&e.target.textContent!="next>"){
+    getRenderData.innerHTML = '';
+    currentPageNum = e.target.textContent;
+    console.log("last"+lastPageNum);
+    console.log("curr"+currentPageNum);
+    if(lastPageNum ==currentPageNum){
+      for(let i = (currentPageNum-1)*10; i <dataTem.length;i++){
+        renderDataView(dataTem[i],districtTem);
       }
-    });
+    }else{
+      for(let i = (currentPageNum-1)*10; i <((currentPageNum-1)*10+10);i++){
+        renderDataView(dataTem[i],districtTem);
+      }
+    }
+  }
+  if(e.target.textContent=="<prev"&&currentPageNum!=1){
+    currentPageNum--;
+    getRenderData.innerHTML = '';
+    for(let i = (currentPageNum-1)*10; i <((currentPageNum-1)*10+10);i++){
+      renderDataView(dataTem[i],districtTem);
+    }
+  }
+
+  if(e.target.textContent=="next>"&&(currentPageNum!=lastPageNum)){
+    currentPageNum++;
+    getRenderData.innerHTML = '';
+    if(currentPageNum!=lastPageNum){
+      for(let i = (currentPageNum-1)*10; i <((currentPageNum-1)*10+10);i++){
+        renderDataView(dataTem[i],districtTem);
+      }
+    }
+	if(currentPageNum==lastPageNum){
+      for(let i = (currentPageNum-1)*10; i <dataTem.length;i++){
+        renderDataView(dataTem[i],districtTem);
+      }
+	}
   }
 }
 
+
+
+
+
+
+// function render10Data(num){
+//    num = (num-1)*10
+//   for(let i = num; i <num+10;i++){
+//     renderDataView(dataTem[i],districtTem);
+//   }
+// }
+
+
+function buildDataTem(district) {
+  console.log(district);
+  getRenderData.previousElementSibling.textContent =district;
+  dataView.forEach((item, index) => {
+    if (item.Add.indexOf(district) != -1) {
+      dataTem.push(item);
+      // renderDataView(item, district);
+    }
+  });
+  console.log(dataTem);
+}
 function renderDataView(view, district) {
 
   let template = ` <li>

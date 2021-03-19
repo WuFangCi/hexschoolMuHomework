@@ -184,6 +184,7 @@ body {
 }
 
 .wrapGoData {
+  color: transparent;
   width: 32px;
   height: 32px;
   position: relative;
@@ -325,6 +326,23 @@ body {
 .renderData .wrapLocation h5 {
   right: 0;
   font-size: 16px;
+}
+
+.wrapPageNum button {
+  padding: 12px;
+  font-size: 14px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.wrapPageNum button:hover {
+  color: #559AC8;
+  cursor: pointer;
+}
+
+.wrapPageNum button:active {
+  color: #3c6c8d;
 }
 
 .goTop {

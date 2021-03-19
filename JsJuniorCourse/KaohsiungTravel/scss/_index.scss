@@ -13,6 +13,7 @@
     }
 }
 .wrapGoData{
+    color: transparent;
     width: 32px;
     height: 32px;
     position: relative;
@@ -129,7 +130,22 @@ border-color: #559AC8 transparent transparent transparent;
         }
     }
 }
-
+.wrapPageNum{
+    button{
+        padding: 12px;
+        font-size: 14px;
+        outline: none;
+        border:none;
+        background-color: transparent;
+        &:hover{
+            color:#559AC8;
+            cursor: pointer;
+        }
+        &:active{
+            color:#3c6c8d;
+        }
+    }
+}
 
 
 // .businessHours,.viewAddress,.wrapPhoneVisit{
