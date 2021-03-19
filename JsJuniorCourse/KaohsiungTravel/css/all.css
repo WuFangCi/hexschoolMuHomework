@@ -244,6 +244,7 @@ body {
   margin-top: 24px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .renderData li {

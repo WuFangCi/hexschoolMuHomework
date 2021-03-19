@@ -1,6 +1,7 @@
 let url =
   "https://api.kcg.gov.tw/api/service/get/9c8e1450-e833-499c-8320-29b36b7ace5c";
 let district = [
+  "全部地區",
   "鹽埕區",
   "鼓山區",
   "左營區",
@@ -45,19 +46,15 @@ district.forEach((element, index) => {
   getSelectDistrict.innerHTML += `<option value="${element}">${element}</option>`;
 });
 const getRenderData = document.querySelector(".renderData");
-const getWrapPageNum = document.querySelector('.wrapPageNum');
+const getWrapPageNum = document.querySelector(".wrapPageNum");
 
 let dataView = [];
 let dataTem = [];
-let districtTem='';
+let districtTem = "";
 let currentPageNum = 1;
-let lastPageNum=0;
+let lastPageNum = 0;
 
-
-
-
-
-function getRemoteData(callback) {
+function getRemoteData() {
   fetch(url, {
     method: "GET",
     mode: "cors",
@@ -77,102 +74,122 @@ function getRemoteData(callback) {
       // console.log(result);
       // comparison(result.data.XML_Head.Infos.Info);
       dataView = bulidData(result);
+      getRenderData.innerHTML='';
+      getRenderData.previousElementSibling.textContent = "全部地區";
+      dataView.forEach((item) => {
+        dataTem.push(item);
+      });
+      makePageNum();
+
+
     })
     .catch((error) => {
       console.log("錯誤代碼為" + error);
     });
 }
-getRemoteData();
+getRemoteData(); 
+
+
 
 function bulidData(remoteData) {
   let array = [];
   remoteData.data.XML_Head.Infos.Info.forEach((item, index) => {
-    // console.log(item);
     array.push(item);
   });
   return array;
 }
 
-getWrapPageNum.addEventListener('click',pageNumClick);
+getWrapPageNum.addEventListener("click", pageNumClick);
 getSelectDistrict.addEventListener("change", showDataInfo);
 function showDataInfo(e) {
+
   districtTem = e.target.value;
-  if(districtTem==="請選擇行政區"){
-      return;
-  }
-  
-  dataTem=[];
-  currentPageNum = 1;
-  getWrapPageNum.innerHTML='';
-  getRenderData.innerHTML='';
-  buildDataTem(districtTem);
-
-  lastPageNum = Math.floor(dataTem.length/10)+1;
-  if(dataTem.length>10){
-    for (let i = 0; i <10;i++) {
-      renderDataView(dataTem[i],districtTem);
-    }
-    getWrapPageNum.innerHTML=`<button>&#060;prev</button>`;
-    for(let i=0; i<lastPageNum; i++){
-      getWrapPageNum.innerHTML+=`<button>${i+1}</button>`;
-    }
-    getWrapPageNum.innerHTML+=`<button>next&#062;</button>`;
-  }else{
-    for (let i = 0; i <dataTem.length; i++) {
-      renderDataView(dataTem[i],districtTem);
-    }
-  }
-
-  console.log("選擇行政區後的最後一頁"+lastPageNum);
-}
-
-function pageNumClick(e){
-  if(e.target.nodeName!='BUTTON'){
+  if (districtTem === "請選擇行政區") {
     return;
   }
-  if(e.target.textContent!="<prev"&&e.target.textContent!="next>"){
-    getRenderData.innerHTML = '';
-    currentPageNum = e.target.textContent;
-    console.log("last"+lastPageNum);
-    console.log("curr"+currentPageNum);
-    if(lastPageNum ==currentPageNum){
-      for(let i = (currentPageNum-1)*10; i <dataTem.length;i++){
-        renderDataView(dataTem[i],districtTem);
-      }
-    }else{
-      for(let i = (currentPageNum-1)*10; i <((currentPageNum-1)*10+10);i++){
-        renderDataView(dataTem[i],districtTem);
-      }
-    }
-  }
-  if(e.target.textContent=="<prev"&&currentPageNum!=1){
-    currentPageNum--;
-    getRenderData.innerHTML = '';
-    for(let i = (currentPageNum-1)*10; i <((currentPageNum-1)*10+10);i++){
-      renderDataView(dataTem[i],districtTem);
-    }
-  }
-
-  if(e.target.textContent=="next>"&&(currentPageNum!=lastPageNum)){
-    currentPageNum++;
-    getRenderData.innerHTML = '';
-    if(currentPageNum!=lastPageNum){
-      for(let i = (currentPageNum-1)*10; i <((currentPageNum-1)*10+10);i++){
-        renderDataView(dataTem[i],districtTem);
-      }
-    }
-	if(currentPageNum==lastPageNum){
-      for(let i = (currentPageNum-1)*10; i <dataTem.length;i++){
-        renderDataView(dataTem[i],districtTem);
-      }
-	}
-  }
+  dataTem = [];
+  currentPageNum = 1;
+  getWrapPageNum.innerHTML = "";
+  getRenderData.innerHTML = "";
+  buildDataTem(districtTem);
+  makePageNum();
 }
 
 
 
+function makePageNum(){
+  lastPageNum = Math.floor(dataTem.length / 10) + 1;
+  if (dataTem.length > 10) {
+  for (let i = 0; i < 10; i++) {
+    renderDataView(dataTem[i], districtTem);
+  }
+    getWrapPageNum.innerHTML = `<button>&#060;prev</button>`;
+    for (let i = 0; i < lastPageNum; i++) {
+      getWrapPageNum.innerHTML += `<button>${i + 1}</button>`;
+    }
+    getWrapPageNum.innerHTML += `<button>next&#062;</button>`;
+  
+  } else {
+    for (let i = 0; i < dataTem.length; i++) {
+      renderDataView(dataTem[i], districtTem);
+    }
+  }
+}
 
+function pageNumClick(e) {
+  if (e.target.nodeName != "BUTTON") {
+    return;
+  }
+  if (e.target.textContent != "<prev" && e.target.textContent != "next>") {
+    getRenderData.innerHTML = "";
+    currentPageNum = e.target.textContent;
+    console.log("last" + lastPageNum);
+    console.log("curr" + currentPageNum);
+    if (lastPageNum == currentPageNum) {
+      for (let i = (currentPageNum - 1) * 10; i < dataTem.length; i++) {
+        renderDataView(dataTem[i], districtTem);
+      }
+    } else {
+      for (
+        let i = (currentPageNum - 1) * 10;
+        i < (currentPageNum - 1) * 10 + 10;
+        i++
+      ) {
+        renderDataView(dataTem[i], districtTem);
+      }
+    }
+  }
+  if (e.target.textContent == "<prev" && currentPageNum != 1) {
+    currentPageNum--;
+    getRenderData.innerHTML = "";
+    for (
+      let i = (currentPageNum - 1) * 10;
+      i < (currentPageNum - 1) * 10 + 10;
+      i++
+    ) {
+      renderDataView(dataTem[i], districtTem);
+    }
+  }
 
+  if (e.target.textContent == "next>" && currentPageNum != lastPageNum) {
+    currentPageNum++;
+    getRenderData.innerHTML = "";
+    if (currentPageNum != lastPageNum) {
+      for (
+        let i = (currentPageNum - 1) * 10;
+        i < (currentPageNum - 1) * 10 + 10;
+        i++
+      ) {
+        renderDataView(dataTem[i], districtTem);
+      }
+    }
+    if (currentPageNum == lastPageNum) {
+      for (let i = (currentPageNum - 1) * 10; i < dataTem.length; i++) {
+        renderDataView(dataTem[i], districtTem);
+      }
+    }
+  }
+}
 
 // function render10Data(num){
 //    num = (num-1)*10
@@ -181,20 +198,26 @@ function pageNumClick(e){
 //   }
 // }
 
-
 function buildDataTem(district) {
   console.log(district);
-  getRenderData.previousElementSibling.textContent =district;
-  dataView.forEach((item, index) => {
-    if (item.Add.indexOf(district) != -1) {
+  getRenderData.previousElementSibling.textContent = district;
+  if(district=="全部地區"){
+    dataView.forEach((item, index) => {
       dataTem.push(item);
-      // renderDataView(item, district);
-    }
-  });
-  console.log(dataTem);
+    });
+  }else{
+    dataView.forEach((item, index) => {
+      if (item.Add.indexOf(district) != -1) {
+        dataTem.push(item);
+      }
+    });
+  }
+  
 }
 function renderDataView(view, district) {
-
+  if(district=="全部地區"){
+    district="";
+  }
   let template = ` <li>
     <div class="wrapLocation" style='background-image: url(${view.Picture1})'>
       <h4>${view.Name}</h4>
@@ -224,12 +247,3 @@ function renderDataView(view, district) {
   </li>`;
   getRenderData.innerHTML += template;
 }
-
-// function comparison(dataArray) {
-// for (let index = 0; index < dataArray.length; index++) {
-//     // console.log(dataArray[index].Add);
-//     if (dataArray[index].Add.indexOf("大樹區") !== -1) {
-//     console.log(dataArray[index]);
-//     }
-//     }
-// }
