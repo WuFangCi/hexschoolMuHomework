@@ -25,12 +25,12 @@
         -moz-appearance:none;
         -webkit-appearance:none;
         background: url("../images/icons_down.png") no-repeat right 15px center;
-        height:48px;
         background-color:rgba(255, 255, 255, 0.7);
         border-radius: 4px;
         border: 1px solid #ffffff;
     }
     .hotDistrict{
+        width: 80%;
         position: absolute;
         bottom: -90px;
         background-color: #fff;
@@ -44,7 +44,6 @@
     .wrapHotDistrict{
         text-align: center;
         button{
-            
             border:none;
             border-radius:4px;
             padding:10px 35px;

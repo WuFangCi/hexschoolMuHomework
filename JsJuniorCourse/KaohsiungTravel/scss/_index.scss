@@ -47,7 +47,9 @@
         background-image: linear-gradient(to right, #559AC8 0%, #559AC8 40%, transparent 50%);
     }
     @include tablet{
-        &::after,&::before{background-image: none;}
+        &::after,&::before{background-image: none;
+        width: 0;
+        }
     }
 }
 .iconTriangle{
@@ -63,16 +65,17 @@ border-color: #559AC8 transparent transparent transparent;
     margin-top: 24px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    width: 100%;
     li{
         position: relative;
         box-shadow:1px 1px 10px 2px rgba(0, 0, 0, 0.479);
-        width: 450px;
+        width: calc(50% + -16px);
         margin: 18px 8px;
+        @include tablet{
+            width: calc(100% + -16px);
+        }
     }
-    @include tablet{
-        width: 100%;
-    }
+  
     p{
         padding: 8px 20px;
         img{
@@ -147,22 +150,6 @@ border-color: #559AC8 transparent transparent transparent;
         }
     }
 }
-
-
-// .businessHours,.viewAddress,.wrapPhoneVisit{
-//     padding: 8px 20px;
-// }
-// .viewPhone{
-//     img{
-//         padding-left: 2px;
-//     }
-//     white-space:nowrap;
-// }.businessHours{
-//     margin-top: 8px;
-// }
-// .wrapPhoneVisit{
-//     margin-bottom: 8px;
-// }
 .goTop{
     display: block;
     width: 24px;
@@ -170,11 +157,8 @@ border-color: #559AC8 transparent transparent transparent;
     position: fixed;
     right: 40px;
     bottom: 100px;
-    // @include tablet{
-    //     display: none;
-    // }
 }
 html{
-    overflow-x: hidden;
+    box-sizing: border-box;
     scroll-behavior: smooth;
 }

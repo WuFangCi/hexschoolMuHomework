@@ -16,7 +16,6 @@ let recordAry = [];
 function printLocalStorageBMI(){
     getContent.innerHTML ='';
     if(localStorage.getItem('item')===null) {
-        console.log(typeof(localStorage.getItem('item')));
         console.log('沒有資料');
         return
     };
@@ -25,15 +24,6 @@ function printLocalStorageBMI(){
     for (let i = 0; i <recordAry.length; i++){
         printTemplate(recordAry[i].weight,recordAry[i].height,recordAry[i].BMIText,recordAry[i].BMI,recordAry[i].color,recordAry[i].year,recordAry[i].month,recordAry[i].date,recordAry[i].getTime);
     }
-    // if(localStorage.getItem('item')!=null){
-    //     recordAry=JSON.parse(localStorage.getItem('item'));  
-    //     for (let i = 0; i <recordAry.length; i++){
-    //         printTemplate(recordAry[i].weight,recordAry[i].height,recordAry[i].BMIText,recordAry[i].BMI,recordAry[i].color,recordAry[i].year,recordAry[i].month,recordAry[i].date,recordAry[i].getTime);
-    //     }
-    // }
-    // else{
-    //     return;
-    // }
 }
 printLocalStorageBMI();
 
@@ -61,14 +51,12 @@ function isItInput(){
     return false;
 }
 function lookResult() {
-    // let getIsItInput =isItInput();
     if (isItInput()) {
         return;
     }
     let BMIValue =0;
     let BMIText = "";
     let todayAry =[];
-
     BMIValue=calculateUserBMI(getHeight.value,getWeight.value);
     console.log(BMIValue);
     BMIText=BMIRange(BMIValue);

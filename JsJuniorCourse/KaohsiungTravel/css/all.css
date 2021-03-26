@@ -49,7 +49,8 @@ table {
 }
 
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
@@ -66,9 +67,16 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 660px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-top: 80px;
   position: relative;
 }
@@ -88,19 +96,20 @@ body {
   -moz-appearance: none;
   -webkit-appearance: none;
   background: url("../images/icons_down.png") no-repeat right 15px center;
-  height: 48px;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 4px;
   border: 1px solid #ffffff;
 }
 
 .header .hotDistrict {
+  width: 80%;
   position: absolute;
   bottom: -90px;
   background-color: #fff;
   border-radius: 4px;
   padding: 25px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .header .hotDistrict h2 {
@@ -137,7 +146,8 @@ body {
 }
 
 .header .wrapHotDistrict button:hover {
-  filter: opacity(0.8);
+  -webkit-filter: opacity(0.8);
+          filter: opacity(0.8);
   cursor: pointer;
 }
 
@@ -171,9 +181,16 @@ body {
 }
 
 .content .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-top: 40px;
 }
 
@@ -199,7 +216,8 @@ body {
 }
 
 .wrapGoData:hover {
-  filter: brightness(0.8);
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
 }
 
 .wrapGoData::after, .wrapGoData::before {
@@ -216,17 +234,20 @@ body {
 
 .wrapGoData::before {
   right: 135%;
+  background-image: -webkit-gradient(linear, right top, left top, from(#559AC8), color-stop(40%, #559AC8), color-stop(50%, transparent));
   background-image: linear-gradient(to left, #559AC8 0%, #559AC8 40%, transparent 50%);
 }
 
 .wrapGoData::after {
   left: 135%;
+  background-image: -webkit-gradient(linear, left top, right top, from(#559AC8), color-stop(40%, #559AC8), color-stop(50%, transparent));
   background-image: linear-gradient(to right, #559AC8 0%, #559AC8 40%, transparent 50%);
 }
 
 @media (max-width: 768px) {
   .wrapGoData::after, .wrapGoData::before {
     background-image: none;
+    width: 0;
   }
 }
 
@@ -242,21 +263,25 @@ body {
 
 .renderData {
   margin-top: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
 }
 
 .renderData li {
   position: relative;
-  box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.479);
-  width: 450px;
+  -webkit-box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.479);
+          box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.479);
+  width: calc(50% + -16px);
   margin: 18px 8px;
 }
 
 @media (max-width: 768px) {
-  .renderData {
-    width: 100%;
+  .renderData li {
+    width: calc(100% + -16px);
   }
 }
 
@@ -270,8 +295,12 @@ body {
 }
 
 .renderData .wrapPhoneVisit {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .renderData .viewVisit {
@@ -280,7 +309,8 @@ body {
 
 .renderData .viewVisitMore {
   display: none;
-  box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.479);
+  -webkit-box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.479);
+          box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.479);
   position: absolute;
   background-color: #fff;
   width: 50%;
@@ -356,7 +386,8 @@ body {
 }
 
 html {
-  overflow-x: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   scroll-behavior: smooth;
 }
 /*# sourceMappingURL=all.css.map */
