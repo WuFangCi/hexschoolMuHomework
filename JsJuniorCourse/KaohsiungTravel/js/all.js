@@ -74,8 +74,6 @@ function getRemoteData() {
       return response.json();
     })
     .then((result) => {
-      // console.log(result);
-      // comparison(result.data.XML_Head.Infos.Info);
       dataView = bulidData(result);
       getRenderData.innerHTML='';
       getRenderData.previousElementSibling.textContent = "全部地區";
@@ -86,6 +84,7 @@ function getRemoteData() {
     })
     .catch((error) => {
       console.log("錯誤代碼為" + error);
+      getRenderData.innerHTML="錯誤代碼為"+ error+"請聯絡伺服器管理人員";
     });
 }
 getRemoteData(); 
