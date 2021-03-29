@@ -1,3 +1,4 @@
+(function(){
 const getHeight = document.getElementById('enter_height');
 const getWeight = document.getElementById('enter_weight')
 const getResult = document.querySelector('.result');
@@ -186,3 +187,5 @@ getContent.addEventListener('click', function(e){
         printLocalStorageBMI();
     }
 })
+
+})();
