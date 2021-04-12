@@ -45,7 +45,7 @@ let district = [
 
 //add district in  getSelectDistrict
 const getSelectDistrict = document.getElementById("selectDistrict");
-district.forEach((element, index) => {
+district.forEach((element) => {
   getSelectDistrict.innerHTML += `<option value="${element}">${element}</option>`;
 });
 const getRenderData = document.querySelector(".renderData");
@@ -56,6 +56,7 @@ let dataTem = [];
 let districtTem = ""; //districtTemporarySave
 let currentPageNum = 1;
 let lastPageNum = 0;
+let pageNum = 30;
 
 // get remote data to dataView and render all district 
 function getRemoteData() {
@@ -109,6 +110,7 @@ getSelectDistrict.addEventListener("change", showDataInfo);
 function buildDataTem(district) {
   getRenderData.previousElementSibling.textContent = district;
   if(district=="全部地區"){
+    pageNum =30;
     dataView.forEach((item, index) => {
       dataTem.push(item);
     });
@@ -117,6 +119,7 @@ function buildDataTem(district) {
       if item.Add's name contains the  selected district 
       ,put it in dataTem array 
     */
+    pageNum=10;
     dataView.forEach((item, index) => {
       if (item.Add.indexOf(district) != -1) { 
         dataTem.push(item);
@@ -151,9 +154,6 @@ function renderDataView(view, district) {
         <img src="images/icons_tag.png" alt="tag" />
         ${view.Ticketinfo}
       </p>
-      <p class="viewVisitMore">
-        一般票(適用於一般假日及國定假日09:30-18:00)成人票:250元兒童票:150元(2歲-140cm)優惠票:150元(憑本人身心障礙手冊，本人及陪同者1人可享優惠票)幸福票...
-      </p>
     </div>
   </li>`;
   getRenderData.innerHTML += template;
@@ -161,8 +161,8 @@ function renderDataView(view, district) {
 
 // render page numbers and render 10 datas
 function makePageNum(){
-  lastPageNum = Math.floor(dataTem.length / 10) + 1;
-  if (dataTem.length > 10) {
+  lastPageNum = Math.ceil(dataTem.length / pageNum);
+  if (dataTem.length > pageNum) {
     getWrapPageNum.innerHTML = `<button>&#060;prev</button>`;
     for (let i = 0; i < lastPageNum; i++) {
       getWrapPageNum.innerHTML += `<button>${i + 1}</button>`;
@@ -179,9 +179,9 @@ function render10Data(curPage) {
   if(lastPageNum==currentPageNum){
     renderNum = dataTem.length;
   }else{
-    renderNum = (curPage-1)*10+10;
+    renderNum = curPage*pageNum;
   }
-  for (let i = (curPage - 1) * 10; i<renderNum;  i++) {
+  for (let i = (curPage - 1) * pageNum; i<renderNum;  i++) {
     renderDataView(dataTem[i], districtTem);
   }
 }

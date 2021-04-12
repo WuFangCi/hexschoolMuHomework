@@ -308,7 +308,7 @@ body {
 }
 
 .renderData .viewVisitMore {
-  display: none;
+  display: block;
   -webkit-box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.479);
           box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.479);
   position: absolute;

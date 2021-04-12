@@ -66,6 +66,9 @@ function lookResult() {
     recordAry.push(buildBMIObj(todayAry[2],todayAry[1],todayAry[0],BMIValue,BMIText,getWeight.value,getHeight.value,todayAry[3],calculateColor));
     localStorage.setItem('item', JSON.stringify(recordAry));
     printLocalStorageBMI();
+    getDelBtn.classList.remove('dn');
+    getHeight.value='';
+    getWeight.value='';
 }
 
 function calculateUserBMI(height,weight){
@@ -79,32 +82,26 @@ function BMIRange(BMIValue){
             calculateColor = colorName[0];
             console.log("過輕");
             return "過輕";
-            break;
         case (18.5<=BMIValue && BMIValue<24):
             calculateColor = colorName[1];
             console.log("標準");
             return "標準";
-            break;
         case (24<=BMIValue && BMIValue<27):
             calculateColor = colorName[2];
             console.log("過重");
             return "過重";
-            break;
         case(27<=BMIValue && BMIValue<30):
             calculateColor = colorName[3];
             console.log("輕度肥胖");
             return "輕度肥胖";
-            break;
         case(30<=BMIValue && BMIValue<35):
             calculateColor = colorName[3];
             console.log("中度肥胖");
             return "中度肥胖";
-            break;
         case(BMIValue>=35):
             calculateColor = colorName[4];
             console.log("重度肥胖");
             return "重度肥胖";
-            break;
     }
 }
 function toggleResetResult(){
@@ -172,6 +169,7 @@ function deleteLocal(){
         return;
     }
 printLocalStorageBMI();
+    getDelBtn.classList.toggle('dn');
 }
 
 getContent.addEventListener('click', function(e){
@@ -184,6 +182,9 @@ getContent.addEventListener('click', function(e){
         });
         recordAry.splice(itemIndex,1);
         localStorage.setItem('item',JSON.stringify(recordAry));
+        if(JSON.parse(localStorage.getItem('item')).length==0){
+            getDelBtn.classList.add('dn');
+        }
         printLocalStorageBMI();
     }
 })
