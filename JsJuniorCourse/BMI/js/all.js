@@ -67,8 +67,7 @@ function lookResult() {
     localStorage.setItem('item', JSON.stringify(recordAry));
     printLocalStorageBMI();
     getDelBtn.classList.remove('dn');
-    getHeight.value='';
-    getWeight.value='';
+
 }
 
 function calculateUserBMI(height,weight){
@@ -143,6 +142,7 @@ function printResetOrResult(value,text){
     getBMIText.textContent=text;
     toggleResetResult();
     toggleColor(calculateColor);
+    
 }
 function printTemplate(weight,height,BMIText,BMI,color,thisYear,thisMonth,thisDate,getTime){
     let recorderTemplate = `
@@ -159,6 +159,8 @@ function printTemplate(weight,height,BMIText,BMI,color,thisYear,thisMonth,thisDa
 function goBack(){
     printResetOrResult();
     calculateColor  ="";
+    getHeight.value ='';
+    getWeight.value ='';
 }
 function deleteLocal(){
     if(localStorage.getItem('item')){

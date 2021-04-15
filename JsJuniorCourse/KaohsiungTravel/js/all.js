@@ -96,7 +96,7 @@ getRemoteData();
 // pick view information from remote data and return arrary
 function bulidData(remoteData) {
   let array = [];
-  remoteData.data.XML_Head.Infos.Info.forEach((item, index) => {
+  remoteData.data.XML_Head.Infos.Info.forEach((item) => {
     array.push(item);
   });
   return array;
@@ -111,7 +111,7 @@ function buildDataTem(district) {
   getRenderData.previousElementSibling.textContent = district;
   if(district=="全部地區"){
     pageNum =30;
-    dataView.forEach((item, index) => {
+    dataView.forEach((item) => {
       dataTem.push(item);
     });
   }else{
@@ -120,7 +120,7 @@ function buildDataTem(district) {
       ,put it in dataTem array 
     */
     pageNum=10;
-    dataView.forEach((item, index) => {
+    dataView.forEach((item) => {
       if (item.Add.indexOf(district) != -1) { 
         dataTem.push(item);
       }
@@ -227,6 +227,7 @@ function showDataInfo(e) {
   if(e.currentTarget.className=="wrapHotDistrict"){
     if(e.target.nodeName=="BUTTON"){
       districtTem=e.target.textContent;
+      selectDistrict.value = e.target.textContent;
     }
   }
   dataTem = [];
